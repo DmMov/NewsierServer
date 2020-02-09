@@ -9,6 +9,7 @@ namespace Newsier.Domain.Entities
         public Publication()
         {
             Comments = new HashSet<Comment>();
+            TagsToPublications = new HashSet<TagToPublication>();
         }
 
         public string Title { get; set; }
@@ -17,6 +18,10 @@ namespace Newsier.Domain.Entities
         public string PublisherId { get; set; }
         public Publisher Publisher { get; set; }
 
+        public string CategoryId { get; set; }
+        public Category Category { get; set; }
+
         public ICollection<Comment> Comments { get; set; }
+        public ICollection<TagToPublication> TagsToPublications { get; set; }
     }
 }

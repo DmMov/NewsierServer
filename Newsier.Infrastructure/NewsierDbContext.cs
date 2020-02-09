@@ -2,9 +2,7 @@
 using Newsier.Application.Interfaces;
 using Newsier.Domain.Entities;
 using System;
-using System.Collections.Generic;
 using System.Reflection;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -25,6 +23,9 @@ namespace Newsier.Infrastructure
         public virtual DbSet<Publisher> Publishers { get; set; }
         public virtual DbSet<Publication> Publications { get; set; }
         public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
+        public virtual DbSet<TagToPublication> TagsToPublications { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

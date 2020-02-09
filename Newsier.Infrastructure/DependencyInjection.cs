@@ -1,13 +1,8 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using Newsier.Application.Interfaces;
 using Newsier.Infrastructure.Services;
-using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Text;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.Configuration;
-using System.Security.Claims;
 
 namespace Newsier.Infrastructure
 {
