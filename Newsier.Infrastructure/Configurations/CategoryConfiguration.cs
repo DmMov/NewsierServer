@@ -16,9 +16,24 @@ namespace Newsier.Infrastructure.Configurations
                 .IsRequired();
 
             builder.HasData(
-                new Category { Id = "category-one", Name = "fashion", Created = DateTime.Now },
-                new Category { Id = "category-two", Name = "tech", Created = DateTime.Now },
-                new Category { Id = "category-three", Name = "health", Created = DateTime.Now }
+                new Category
+                {
+                    Id = "category-one",
+                    Name = "fashion",
+                    Created = DateTime.Now
+                },
+                new Category
+                {
+                    Id = "category-two",
+                    Name = "tech",
+                    Created = DateTime.Now
+                },
+                new Category
+                {
+                    Id = "category-three",
+                    Name = "health",
+                    Created = DateTime.Now
+                }
             );
         }
     }

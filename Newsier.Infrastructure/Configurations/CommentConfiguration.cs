@@ -32,11 +32,12 @@ namespace Newsier.Infrastructure.Configurations
                 .OnDelete(DeleteBehavior.Restrict);
 
             builder.HasData(
-                new Comment { 
-                    Id = "comment-one", 
-                    Value = "the publication is cool", 
-                    Created = DateTime.Now, 
-                    PublicationId = "publication-one", 
+                new Comment
+                {
+                    Id = "comment-one",
+                    Value = "the publication is cool",
+                    Created = DateTime.Now,
+                    PublicationId = "publication-one",
                     PublisherId = "publisher-one"
                 },
                 new Comment

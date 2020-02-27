@@ -9,6 +9,8 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Publication> builder)
         {
+            string defaultPubImgUrl = "https://localhost:5001/Static/Images/default-publication.png";
+
             builder.Property(p => p.Title)
                 .HasMaxLength(256)
                 .IsRequired();
@@ -29,6 +31,10 @@ namespace Newsier.Infrastructure.Configurations
             builder.HasOne(p => p.Publisher)
                 .WithMany(pub => pub.Publications)
                 .OnDelete(DeleteBehavior.Restrict);
+
+            builder.Property(p => p.ImageUrl)
+                .HasDefaultValue(defaultPubImgUrl)
+                .IsRequired();
 
             builder.HasData(
                 new Publication {

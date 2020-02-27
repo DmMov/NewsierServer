@@ -13,6 +13,8 @@ namespace Newsier.Domain.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public string Role { get; set; }
+        public string ImageUrl { get; set; }
+        public string Password { get; set; }
 
         public ICollection<Publication> Publications { get; set; }
         public ICollection<Comment> Comments { get; set; }
