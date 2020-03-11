@@ -14,8 +14,8 @@ namespace Newsier.Domain.Entities
 
         public string Title { get; set; }
         public string Value { get; set; }
-        public string ImageUrl { get; set; }
         public long Views { get; set; }
+        public string ImagePath { get; set; }
 
         public string PublisherId { get; set; }
         public Publisher Publisher { get; set; }

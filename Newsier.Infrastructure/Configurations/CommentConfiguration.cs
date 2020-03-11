@@ -36,7 +36,7 @@ namespace Newsier.Infrastructure.Configurations
                 {
                     Id = "comment-one",
                     Value = "the publication is cool",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     PublicationId = "publication-one",
                     PublisherId = "publisher-one"
                 },
@@ -44,7 +44,7 @@ namespace Newsier.Infrastructure.Configurations
                 {
                     Id = "comment-two",
                     Value = "the publication is cool",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     PublicationId = "publication-one",
                     PublisherId = "publisher-one"
                 },
@@ -52,7 +52,7 @@ namespace Newsier.Infrastructure.Configurations
                 {
                     Id = "comment-three",
                     Value = "the publication is cool",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     PublicationId = "publication-one",
                     PublisherId = "publisher-one"
                 },
@@ -60,7 +60,7 @@ namespace Newsier.Infrastructure.Configurations
                 {
                     Id = "comment-four",
                     Value = "the publication is cool",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     PublicationId = "publication-one",
                     PublisherId = "publisher-one",
                     ParentId = "comment-one"
@@ -69,7 +69,7 @@ namespace Newsier.Infrastructure.Configurations
                 {
                     Id = "comment-five",
                     Value = "the publication is cool",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     PublicationId = "publication-one",
                     PublisherId = "publisher-one",
                     ParentId = "comment-one"
@@ -78,7 +78,7 @@ namespace Newsier.Infrastructure.Configurations
                 {
                     Id = "comment-six",
                     Value = "the publication is cool",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     PublicationId = "publication-one",
                     PublisherId = "publisher-one",
                     ParentId = "comment-two"

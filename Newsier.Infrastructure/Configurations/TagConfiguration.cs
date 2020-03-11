@@ -18,55 +18,55 @@ namespace Newsier.Infrastructure.Configurations
                 {
                     Id = "tag-one",
                     Value = "hello",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Tag
                 {
                     Id = "tag-two",
                     Value = "welcome",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Tag
                 {
                     Id = "tag-three",
                     Value = "decisions",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Tag
                 {
                     Id = "tag-four",
                     Value = "2020",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Tag
                 {
                     Id = "tag-five",
                     Value = "dress",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Tag
                 {
                     Id = "tag-six",
                     Value = "job",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Tag
                 {
                     Id = "tag-seven",
                     Value = "world actions",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Tag
                 {
                     Id = "tag-eight",
                     Value = "cool science",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Tag
                 {
                     Id = "tag-nine",
                     Value = "tech 2020",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 }
             );
         }

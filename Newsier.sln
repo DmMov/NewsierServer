@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29613.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsier.WebUI", "Newsier.WebUI\Newsier.WebUI.csproj", "{F46C9676-E7DA-46DF-87F7-0513174ABB83}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsier.WebUI", "Newsier.WebUI\Newsier.WebUI.csproj", "{F46C9676-E7DA-46DF-87F7-0513174ABB83}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsier.Domain", "Newsier.Domain\Newsier.Domain.csproj", "{F96E9A1F-7346-447F-8ABE-D164AF4A22D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsier.Domain", "Newsier.Domain\Newsier.Domain.csproj", "{F96E9A1F-7346-447F-8ABE-D164AF4A22D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsier.Application", "Newsier.Application\Newsier.Application.csproj", "{CAABCA19-C639-4B41-9D6F-E8AA4765549F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsier.Application", "Newsier.Application\Newsier.Application.csproj", "{CAABCA19-C639-4B41-9D6F-E8AA4765549F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsier.Infrastructure", "Newsier.Infrastructure\Newsier.Infrastructure.csproj", "{1DC88E40-63FF-4AC9-896A-BAC1A2A21C9C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsier.Infrastructure", "Newsier.Infrastructure\Newsier.Infrastructure.csproj", "{1DC88E40-63FF-4AC9-896A-BAC1A2A21C9C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsier.Application.UnitTests", "Newsier.Application.UnitTests\Newsier.Application.UnitTests.csproj", "{B72CA014-08BC-4759-904D-FA90255C864B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1DC88E40-63FF-4AC9-896A-BAC1A2A21C9C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1DC88E40-63FF-4AC9-896A-BAC1A2A21C9C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1DC88E40-63FF-4AC9-896A-BAC1A2A21C9C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B72CA014-08BC-4759-904D-FA90255C864B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B72CA014-08BC-4759-904D-FA90255C864B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B72CA014-08BC-4759-904D-FA90255C864B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B72CA014-08BC-4759-904D-FA90255C864B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

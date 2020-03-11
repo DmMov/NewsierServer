@@ -11,8 +11,6 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Publisher> builder)
         {
-            string defaultUserImgUrl = "https://localhost:5001/Static/Images/default-user.png";
-
             builder.Property(p => p.Name)
                 .HasMaxLength(32)
                 .IsRequired();
@@ -26,10 +24,6 @@ namespace Newsier.Infrastructure.Configurations
                 .HasDefaultValue("publisher")
                 .IsRequired();
 
-            builder.Property(p => p.ImageUrl)
-                .HasDefaultValue(defaultUserImgUrl)
-                .IsRequired();
-
             builder.Property(p => p.Password)
                 .HasMaxLength(256)
                 .IsRequired();
@@ -41,7 +35,7 @@ namespace Newsier.Infrastructure.Configurations
                     Name = "Volodymyr",
                     Surname = "Mylysiuk",
                     Role = "admin",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     Password = Convert.ToBase64String(new PasswordHash("admin").ToArray())
                 },
                 new Publisher
@@ -50,7 +44,7 @@ namespace Newsier.Infrastructure.Configurations
                     Name = "Dmitriy",
                     Surname = "Movchaniuk",
                     Role = "publisher",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     Password = Convert.ToBase64String(new PasswordHash("publisher").ToArray())
                 }
             );

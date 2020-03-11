@@ -9,13 +9,14 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Publication> builder)
         {
-            string defaultPubImgUrl = "https://localhost:5001/Static/Images/default-publication.png";
-
             builder.Property(p => p.Title)
                 .HasMaxLength(256)
                 .IsRequired();
 
             builder.Property(p => p.Value)
+                .IsRequired();
+
+            builder.Property(p => p.ImagePath)
                 .IsRequired();
 
             builder.Property(p => p.PublisherId)
@@ -32,63 +33,65 @@ namespace Newsier.Infrastructure.Configurations
                 .WithMany(pub => pub.Publications)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.Property(p => p.ImageUrl)
-                .HasDefaultValue(defaultPubImgUrl)
-                .IsRequired();
-
             builder.HasData(
                 new Publication {
                     Id = "publication-one",
                     Title = "the first publication",
                     Value = "the content of the very first publication on the web-site",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     CategoryId = "category-one",
-                    PublisherId = "publisher-one"
+                    PublisherId = "publisher-one",
+                    ImagePath = "Static/Images/default-publication.png"
                 },
                 new Publication
                 {
                     Id = "publication-two",
                     Title = "the second publication",
                     Value = "the content of the second publication on the web-site",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     CategoryId = "category-one",
-                    PublisherId = "publisher-two"
+                    PublisherId = "publisher-two",
+                    ImagePath = "Static/Images/default-publication.png"
                 },
                 new Publication
                 {
                     Id = "publication-three",
                     Title = "the third publication",
                     Value = "the content of the third publication on the web-site",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     CategoryId = "category-two",
-                    PublisherId = "publisher-one"
+                    PublisherId = "publisher-one",
+                    ImagePath = "Static/Images/default-publication.png"
                 },
                 new Publication
                 {
                     Id = "publication-four",
                     Title = "the fourth publication",
                     Value = "the content of the fourth publication on the web-site",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     CategoryId = "category-two",
-                    PublisherId = "publisher-two"
+                    PublisherId = "publisher-two",
+                    ImagePath = "Static/Images/default-publication.png"
                 },
                 new Publication
                 {
                     Id = "publication-five",
                     Title = "the fifth publication",
                     Value = "the content of the fifth publication on the web-site",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     CategoryId = "category-three",
-                    PublisherId = "publisher-one"
+                    PublisherId = "publisher-one",
+                    ImagePath = "Static/Images/default-publication.png"
                 },
                 new Publication
                 {
                     Id = "publication-six",
                     Title = "the sixth publication",
                     Value = "the content of the sixth publication on the web-site",
-                    Created = DateTime.Now,
+                    CreatedAt = DateTime.Now,
                     CategoryId = "category-three",
-                    PublisherId = "publisher-two"
+                    PublisherId = "publisher-two",
+                    ImagePath = "Static/Images/default-publication.png"
                 }
             );
         }

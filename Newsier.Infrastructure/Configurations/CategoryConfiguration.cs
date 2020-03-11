@@ -20,19 +20,19 @@ namespace Newsier.Infrastructure.Configurations
                 {
                     Id = "category-one",
                     Name = "fashion",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Category
                 {
                     Id = "category-two",
                     Name = "tech",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 },
                 new Category
                 {
                     Id = "category-three",
                     Name = "health",
-                    Created = DateTime.Now
+                    CreatedAt = DateTime.Now
                 }
             );
         }

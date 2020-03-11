@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Newsier.Application.Interfaces;
 using Newsier.Domain.Entities;
 using System;
@@ -20,25 +21,25 @@ namespace Newsier.Infrastructure
             _dateTime = dateTime;
         }
 
-        public virtual DbSet<Publisher> Publishers { get; set; }
-        public virtual DbSet<Publication> Publications { get; set; }
-        public virtual DbSet<Comment> Comments { get; set; }
-        public virtual DbSet<Category> Categories { get; set; }
-        public virtual DbSet<Tag> Tags { get; set; }
-        public virtual DbSet<TagToPublication> TagsToPublications { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Publication> Publications { get; set; }
+        public DbSet<Comment> Comments { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Tag> Tags { get; set; }
+        public DbSet<TagToPublication> TagsToPublications { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            foreach (var entry in ChangeTracker.Entries<BaseEntity>())
+            foreach (EntityEntry<BaseEntity> entry in ChangeTracker.Entries<BaseEntity>())
             {
                 switch (entry.State)
                 {
                     case EntityState.Added:
                         entry.Entity.Id = Guid.NewGuid().ToString();
-                        entry.Entity.Created = _dateTime.Now;
+                        entry.Entity.CreatedAt = _dateTime.Now;
                         break;
                     case EntityState.Modified:
-                        entry.Entity.LastModified = _dateTime.Now;
+                        entry.Entity.LastModifiedAt = _dateTime.Now;
                         break;
                 }
             }
