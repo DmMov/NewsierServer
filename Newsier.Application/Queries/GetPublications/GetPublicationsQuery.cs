@@ -16,10 +16,10 @@ namespace Newsier.Application.Queries.GetPublications
     {
         public sealed class Handler : IRequestHandler<GetPublicationsQuery, List<PublicationVm>>
         {
-            private readonly INewsierDbContext _context;
+            private readonly INewsierContext _context;
             private readonly IMapper _mapper;
 
-            public Handler(INewsierDbContext context, IMapper mapper)
+            public Handler(INewsierContext context, IMapper mapper)
             {
                 _context = context;
                 _mapper = mapper;

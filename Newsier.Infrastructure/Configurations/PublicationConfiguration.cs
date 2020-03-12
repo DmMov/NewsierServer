@@ -9,14 +9,15 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Publication> builder)
         {
+            builder.Property(p => p.Image)
+               .HasDefaultValue("default-publication.png")
+               .IsRequired();
+
             builder.Property(p => p.Title)
                 .HasMaxLength(256)
                 .IsRequired();
 
             builder.Property(p => p.Value)
-                .IsRequired();
-
-            builder.Property(p => p.ImagePath)
                 .IsRequired();
 
             builder.Property(p => p.PublisherId)
@@ -40,8 +41,7 @@ namespace Newsier.Infrastructure.Configurations
                     Value = "the content of the very first publication on the web-site",
                     CreatedAt = DateTime.Now,
                     CategoryId = "category-one",
-                    PublisherId = "publisher-one",
-                    ImagePath = "Static/Images/default-publication.png"
+                    PublisherId = "publisher-one"
                 },
                 new Publication
                 {
@@ -50,8 +50,7 @@ namespace Newsier.Infrastructure.Configurations
                     Value = "the content of the second publication on the web-site",
                     CreatedAt = DateTime.Now,
                     CategoryId = "category-one",
-                    PublisherId = "publisher-two",
-                    ImagePath = "Static/Images/default-publication.png"
+                    PublisherId = "publisher-two"
                 },
                 new Publication
                 {
@@ -60,8 +59,7 @@ namespace Newsier.Infrastructure.Configurations
                     Value = "the content of the third publication on the web-site",
                     CreatedAt = DateTime.Now,
                     CategoryId = "category-two",
-                    PublisherId = "publisher-one",
-                    ImagePath = "Static/Images/default-publication.png"
+                    PublisherId = "publisher-one"
                 },
                 new Publication
                 {
@@ -70,8 +68,7 @@ namespace Newsier.Infrastructure.Configurations
                     Value = "the content of the fourth publication on the web-site",
                     CreatedAt = DateTime.Now,
                     CategoryId = "category-two",
-                    PublisherId = "publisher-two",
-                    ImagePath = "Static/Images/default-publication.png"
+                    PublisherId = "publisher-two"
                 },
                 new Publication
                 {
@@ -80,8 +77,7 @@ namespace Newsier.Infrastructure.Configurations
                     Value = "the content of the fifth publication on the web-site",
                     CreatedAt = DateTime.Now,
                     CategoryId = "category-three",
-                    PublisherId = "publisher-one",
-                    ImagePath = "Static/Images/default-publication.png"
+                    PublisherId = "publisher-one"
                 },
                 new Publication
                 {
@@ -90,8 +86,7 @@ namespace Newsier.Infrastructure.Configurations
                     Value = "the content of the sixth publication on the web-site",
                     CreatedAt = DateTime.Now,
                     CategoryId = "category-three",
-                    PublisherId = "publisher-two",
-                    ImagePath = "Static/Images/default-publication.png"
+                    PublisherId = "publisher-two"
                 }
             );
         }

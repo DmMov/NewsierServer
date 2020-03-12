@@ -10,13 +10,14 @@ namespace Newsier.Infrastructure
     {
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<INewsierDbContext, NewsierDbContext>(options =>
+            services.AddDbContext<INewsierContext, NewsierContext>(options =>
                 options.UseSqlServer(
                     configuration.GetConnectionString("NewsierConnection"),
-                    b => b.MigrationsAssembly(typeof(NewsierDbContext).Assembly.FullName)
+                    b => b.MigrationsAssembly(typeof(NewsierContext).Assembly.FullName)
                )
             );
             services.AddTransient<IDateTime, DateTimeService>();
+            services.AddTransient<ITokenService, TokenService>();
 
             return services;
         }

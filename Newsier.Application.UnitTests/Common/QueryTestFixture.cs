@@ -10,7 +10,7 @@ namespace Newsier.Application.UnitTests.Common
     {
         public QueryTestFixture()
         {
-            Context = NewsierDbContextFactory.Create();
+            Context = NewsierContextFactory.Create();
 
             var configurationProvider = new MapperConfiguration(cfg =>
             {
@@ -19,13 +19,13 @@ namespace Newsier.Application.UnitTests.Common
 
             Mapper = configurationProvider.CreateMapper();
         }
-        public NewsierDbContext Context { get; }
+        public NewsierContext Context { get; }
 
         public IMapper Mapper { get; }
 
         public void Dispose()
         {
-            NewsierDbContextFactory.Destroy(Context);
+            NewsierContextFactory.Destroy(Context);
         }
     }
 

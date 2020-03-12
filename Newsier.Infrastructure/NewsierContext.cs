@@ -9,24 +9,24 @@ using System.Threading.Tasks;
 
 namespace Newsier.Infrastructure
 {
-    public class NewsierDbContext : DbContext, INewsierDbContext
+    public class NewsierContext : DbContext, INewsierContext
     {
         private readonly IDateTime _dateTime;
 
-        public NewsierDbContext(
-            DbContextOptions<NewsierDbContext> options,
+        public NewsierContext(
+            DbContextOptions<NewsierContext> options,
             IDateTime dateTime
         ) : base(options)
         {
             _dateTime = dateTime;
         }
 
-        public DbSet<Publisher> Publishers { get; set; }
-        public DbSet<Publication> Publications { get; set; }
-        public DbSet<Comment> Comments { get; set; }
-        public DbSet<Category> Categories { get; set; }
-        public DbSet<Tag> Tags { get; set; }
-        public DbSet<TagToPublication> TagsToPublications { get; set; }
+        public virtual DbSet<Publisher> Publishers { get; set; }
+        public virtual DbSet<Publication> Publications { get; set; }
+        public virtual DbSet<Comment> Comments { get; set; }
+        public virtual DbSet<Category> Categories { get; set; }
+        public virtual DbSet<Tag> Tags { get; set; }
+        public virtual DbSet<TagToPublication> TagsToPublications { get; set; }
 
         public override Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {

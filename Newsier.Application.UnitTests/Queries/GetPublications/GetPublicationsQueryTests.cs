@@ -13,7 +13,7 @@ namespace Newsier.Application.UnitTests.Queries.GetPublications
     [Collection("QueryTests")]
     public class GetPublicationsQueryTests
     {
-        private readonly NewsierDbContext _context;
+        private readonly NewsierContext _context;
         private readonly IMapper _mapper;
 
         public GetPublicationsQueryTests(QueryTestFixture fixture)

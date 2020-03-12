@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Newsier.Application.Interfaces
 {
-    public interface INewsierDbContext
+    public interface INewsierContext
     {
         DbSet<Publisher> Publishers { get; set; }
         DbSet<Publication> Publications { get; set; }

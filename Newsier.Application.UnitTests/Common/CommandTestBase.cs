@@ -7,14 +7,14 @@ namespace Newsier.Application.UnitTests.Common
     {
         public CommandTestBase()
         {
-            Context = NewsierDbContextFactory.Create();
+            Context = NewsierContextFactory.Create();
         }
 
-        public NewsierDbContext Context { get; }
+        public NewsierContext Context { get; }
 
         public void Dispose()
         {
-            NewsierDbContextFactory.Destroy(Context);
+            NewsierContextFactory.Destroy(Context);
         }
     }
 }

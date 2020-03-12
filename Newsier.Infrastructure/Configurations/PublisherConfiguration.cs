@@ -11,6 +11,11 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Publisher> builder)
         {
+            builder.Property(p => p.Image)
+                .HasMaxLength(256)
+                .HasDefaultValue("Static/Images/default-user.png")
+                .IsRequired();
+
             builder.Property(p => p.Name)
                 .HasMaxLength(32)
                 .IsRequired();
@@ -19,13 +24,17 @@ namespace Newsier.Infrastructure.Configurations
                 .HasMaxLength(64)
                 .IsRequired();
 
-            builder.Property(p => p.Role)
-                .HasMaxLength(12)
-                .HasDefaultValue("publisher")
+            builder.Property(p => p.Email)
+                .HasMaxLength(128)
                 .IsRequired();
 
             builder.Property(p => p.Password)
                 .HasMaxLength(256)
+                .IsRequired();
+
+            builder.Property(p => p.Role)
+                .HasMaxLength(12)
+                .HasDefaultValue("publisher")
                 .IsRequired();
 
             builder.HasData(
@@ -34,18 +43,20 @@ namespace Newsier.Infrastructure.Configurations
                     Id = "publisher-one",
                     Name = "Volodymyr",
                     Surname = "Mylysiuk",
+                    Email = "admin@newsier.com",
+                    Password = Convert.ToBase64String(new PasswordHash("admin").ToArray()),
                     Role = "admin",
-                    CreatedAt = DateTime.Now,
-                    Password = Convert.ToBase64String(new PasswordHash("admin").ToArray())
+                    CreatedAt = DateTime.Now
                 },
                 new Publisher
                 {
                     Id = "publisher-two",
                     Name = "Dmitriy",
                     Surname = "Movchaniuk",
+                    Email = "admin@newsier.com",
+                    Password = Convert.ToBase64String(new PasswordHash("publisher").ToArray()),
                     Role = "publisher",
-                    CreatedAt = DateTime.Now,
-                    Password = Convert.ToBase64String(new PasswordHash("publisher").ToArray())
+                    CreatedAt = DateTime.Now
                 }
             );
         }
