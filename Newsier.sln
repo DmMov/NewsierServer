@@ -11,7 +11,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsier.Application", "News
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsier.Infrastructure", "Newsier.Infrastructure\Newsier.Infrastructure.csproj", "{1DC88E40-63FF-4AC9-896A-BAC1A2A21C9C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Newsier.Application.UnitTests", "Newsier.Application.UnitTests\Newsier.Application.UnitTests.csproj", "{B72CA014-08BC-4759-904D-FA90255C864B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Newsier.Application.UnitTests", "Newsier.Application.UnitTests\Newsier.Application.UnitTests.csproj", "{B72CA014-08BC-4759-904D-FA90255C864B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{BFB8A8AA-8C21-4515-9F93-76D56E18DE77}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Testing", "Testing", "{17FEBBFA-48A6-43DE-A6AB-5D8FCAC9EC2B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -42,6 +46,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F46C9676-E7DA-46DF-87F7-0513174ABB83} = {BFB8A8AA-8C21-4515-9F93-76D56E18DE77}
+		{F96E9A1F-7346-447F-8ABE-D164AF4A22D1} = {BFB8A8AA-8C21-4515-9F93-76D56E18DE77}
+		{CAABCA19-C639-4B41-9D6F-E8AA4765549F} = {BFB8A8AA-8C21-4515-9F93-76D56E18DE77}
+		{1DC88E40-63FF-4AC9-896A-BAC1A2A21C9C} = {BFB8A8AA-8C21-4515-9F93-76D56E18DE77}
+		{B72CA014-08BC-4759-904D-FA90255C864B} = {17FEBBFA-48A6-43DE-A6AB-5D8FCAC9EC2B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {8386B02B-E779-40AB-818C-4492E74E07F8}

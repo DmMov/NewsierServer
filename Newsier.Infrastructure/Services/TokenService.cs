@@ -9,7 +9,7 @@ using Newsier.Application.Interfaces;
 
 namespace Newsier.Infrastructure.Services
 {
-    public sealed class TokenService : ITokenService
+    public class TokenService : ITokenService
     {
         IConfiguration _configuration;
 

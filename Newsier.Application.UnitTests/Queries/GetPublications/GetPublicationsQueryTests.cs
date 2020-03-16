@@ -11,7 +11,7 @@ using Xunit;
 namespace Newsier.Application.UnitTests.Queries.GetPublications
 {
     [Collection("QueryTests")]
-    public class GetPublicationsQueryTests
+    public sealed class GetPublicationsQueryTests
     {
         private readonly NewsierContext _context;
         private readonly IMapper _mapper;
@@ -31,6 +31,7 @@ namespace Newsier.Application.UnitTests.Queries.GetPublications
             List<PublicationVm> result = await handler.Handle(query, CancellationToken.None);
 
             result.ShouldBeOfType<List<PublicationVm>>();
+            result.Count.ShouldBe(6);
         }
     }
 }

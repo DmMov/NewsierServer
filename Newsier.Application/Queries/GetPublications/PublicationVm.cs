@@ -10,10 +10,10 @@ namespace Newsier.Application.Queries.GetPublications
     public sealed class PublicationVm : IMapFrom<Publication>
     {
         public string Id { get; set; }
+        public string Image { get; set; }
         public string Title { get; set; }
         public string Value { get; set; }
         public long Views { get; set; }
-        public string Image { get; set; }
         public string Publisher { get; set; }
         public string CreatedAt { get; set; }
         public string LastModifiedAt { get; set; }

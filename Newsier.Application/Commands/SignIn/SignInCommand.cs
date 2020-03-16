@@ -32,7 +32,7 @@ namespace Newsier.Application.Commands.SignIn
             public async Task<SignInResponseVm> Handle(SignInCommand request, CancellationToken cancellationToken)
             {
                 Publisher publisher = await _context.Publishers.
-                    FirstOrDefaultAsync(x => x.Email.ToLower() == request.Email.ToLower());
+                    SingleOrDefaultAsync(x => x.Email.ToLower() == request.Email.ToLower());
 
                 byte[] hashBytes = Convert.FromBase64String(publisher.Password);
 
@@ -52,9 +52,7 @@ namespace Newsier.Application.Commands.SignIn
                     new Claim(ClaimTypes.Role, publisher.Role)
                 };
 
-                string token = _tokenService.BuildToken(claims);
-
-                vm.Token = token;
+                vm.Token = _tokenService.BuildToken(claims);
 
                 return vm;
             }

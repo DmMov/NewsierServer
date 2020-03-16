@@ -13,7 +13,7 @@ namespace Newsier.Infrastructure.Configurations
         {
             builder.Property(p => p.Image)
                 .HasMaxLength(256)
-                .HasDefaultValue("Static/Images/default-user.png")
+                .HasDefaultValue("default-user.png")
                 .IsRequired();
 
             builder.Property(p => p.Name)
@@ -46,17 +46,19 @@ namespace Newsier.Infrastructure.Configurations
                     Email = "admin@newsier.com",
                     Password = Convert.ToBase64String(new PasswordHash("admin").ToArray()),
                     Role = "admin",
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTime.Now,
+                    Image = "image"
                 },
                 new Publisher
                 {
                     Id = "publisher-two",
                     Name = "Dmitriy",
                     Surname = "Movchaniuk",
-                    Email = "admin@newsier.com",
+                    Email = "publisher@newsier.com",
                     Password = Convert.ToBase64String(new PasswordHash("publisher").ToArray()),
                     Role = "publisher",
-                    CreatedAt = DateTime.Now
+                    CreatedAt = DateTime.Now,
+                    Image = "image"
                 }
             );
         }
