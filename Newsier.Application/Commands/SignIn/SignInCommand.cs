@@ -1,5 +1,6 @@
 ﻿using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Newsier.Application.Exceptions;
 using Newsier.Application.Helpers;
 using Newsier.Application.Interfaces;
 using Newsier.Domain.Entities;
@@ -34,6 +35,9 @@ namespace Newsier.Application.Commands.SignIn
                 Publisher publisher = await _context.Publishers.
                     SingleOrDefaultAsync(x => x.Email.ToLower() == request.Email.ToLower());
 
+                if (publisher == null)
+                    throw new BadRequestException("incorect email or password");
+
                 byte[] hashBytes = Convert.FromBase64String(publisher.Password);
 
                 PasswordHash hash = new PasswordHash(hashBytes);
@@ -41,10 +45,7 @@ namespace Newsier.Application.Commands.SignIn
                 SignInResponseVm vm = new SignInResponseVm();
 
                 if (!hash.Verify(request.Password))
-                {
-                    vm.Token = "no token";
-                    return vm;
-                }
+                    throw new BadRequestException("incorect email or password");
 
                 ICollection<Claim> claims = new List<Claim>
                 {

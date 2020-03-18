@@ -34,3 +34,4 @@ msbuild.log
 msbuild.err
 msbuild.wrn
 [Mm]igrations/
+[Ss]tatic/

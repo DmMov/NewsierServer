@@ -1,7 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Newsier.Domain.Entities;
+using Newsier.Infrastructure.Helpers;
+using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
+using System.IO;
 
 namespace Newsier.Infrastructure.Configurations
 {
@@ -35,67 +39,7 @@ namespace Newsier.Infrastructure.Configurations
                 .WithMany(pub => pub.Publications)
                 .OnDelete(DeleteBehavior.Restrict);
 
-            builder.HasData(
-                new Publication {
-                    Id = "publication-one",
-                    Title = "the first publication",
-                    Value = "the content of the very first publication on the web-site",
-                    CreatedAt = DateTime.Now,
-                    CategoryId = "category-one",
-                    PublisherId = "publisher-one",
-                    Image = "image"
-                },
-                new Publication
-                {
-                    Id = "publication-two",
-                    Title = "the second publication",
-                    Value = "the content of the second publication on the web-site",
-                    CreatedAt = DateTime.Now,
-                    CategoryId = "category-one",
-                    PublisherId = "publisher-two",
-                    Image = "image"
-                },
-                new Publication
-                {
-                    Id = "publication-three",
-                    Title = "the third publication",
-                    Value = "the content of the third publication on the web-site",
-                    CreatedAt = DateTime.Now,
-                    CategoryId = "category-two",
-                    PublisherId = "publisher-one",
-                    Image = "image"
-                },
-                new Publication
-                {
-                    Id = "publication-four",
-                    Title = "the fourth publication",
-                    Value = "the content of the fourth publication on the web-site",
-                    CreatedAt = DateTime.Now,
-                    CategoryId = "category-two",
-                    PublisherId = "publisher-two",
-                    Image = "image"
-                },
-                new Publication
-                {
-                    Id = "publication-five",
-                    Title = "the fifth publication",
-                    Value = "the content of the fifth publication on the web-site",
-                    CreatedAt = DateTime.Now,
-                    CategoryId = "category-three",
-                    PublisherId = "publisher-one",
-                    Image = "image"
-                },
-                new Publication
-                {
-                    Id = "publication-six",
-                    Title = "the sixth publication",
-                    Value = "the content of the sixth publication on the web-site",
-                    CreatedAt = DateTime.Now,
-                    CategoryId = "category-three",
-                    PublisherId = "publisher-two",
-                    Image = "image"
-                }
-            );
+            builder.HasData(SeedHelper.SeedData<Publication>("publications.json"));
         }
     }
 }
