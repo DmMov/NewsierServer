@@ -8,7 +8,7 @@ using Newsier.Application.Queries.GetPublications;
 
 namespace Newsier.WebUI.Controllers
 {
-    public class PublicationsController : ApiController
+    public class PublicationsController : BaseController
     {
         [HttpGet]
         public async Task<ActionResult<List<PublicationVm>>> Get()

@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Newsier.Application.Queries.GetPublications
 {

@@ -26,11 +26,11 @@ namespace Newsier.Application.Queries.GetPublications
             }
             public async Task<List<PublicationVm>> Handle(GetPublicationsQuery request, CancellationToken cancellationToken)
             {
-                List<PublicationVm> result = await _context.Publications
+                List<PublicationVm> publications = await _context.Publications
                     .ProjectTo<PublicationVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
-                return result;
+                return publications;
             }
         }
     }

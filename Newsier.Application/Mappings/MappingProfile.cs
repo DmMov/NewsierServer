@@ -24,7 +24,8 @@ namespace Newsier.Application.Mappings
             foreach (Type type in types)
             {
                 object instance = Activator.CreateInstance(type);
-                MethodInfo methodInfo = type.GetMethod("Mapping");
+                MethodInfo methodInfo = type.GetMethod("Mapping")
+                    ?? type.GetInterface("IMapFrom`1").GetMethod("Mapping");
                 methodInfo?.Invoke(instance, new object[] { this });
             }
         }
