@@ -47,7 +47,7 @@ namespace Newsier.Infrastructure.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("admin").ToArray()),
                     Role = "admin",
                     CreatedAt = DateTime.Now,
-                    Image = "image"
+                    Image = "default-user.png"
                 },
                 new Publisher
                 {
@@ -58,7 +58,7 @@ namespace Newsier.Infrastructure.Configurations
                     Password = Convert.ToBase64String(new PasswordHash("publisher").ToArray()),
                     Role = "publisher",
                     CreatedAt = DateTime.Now,
-                    Image = "image"
+                    Image = "default-user.png"
                 }
             );
         }

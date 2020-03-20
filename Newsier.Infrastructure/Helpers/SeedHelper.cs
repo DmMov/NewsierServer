@@ -11,7 +11,7 @@ namespace Newsier.Infrastructure.Helpers
         public static List<TEntity> SeedData<TEntity>(string fileName)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
-            string path = "Static/Json";
+            string path = "Assets/Json";
             string fullPath = Path.Combine(currentDirectory, path, fileName);
 
             var result = new List<TEntity>();

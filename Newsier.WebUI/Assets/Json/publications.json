@@ -1,0 +1,58 @@
+[
+  {
+    "id": "publication-one",
+    "title": "the first publication",
+    "value": "the content of the very first publication on the web-site",
+    "createdAt": "03.20.2020",
+    "categoryId": "category-one",
+    "publisherId": "publisher-one",
+    "image": "default-publication.png"
+  },
+  {
+    "id": "publication-two",
+    "title": "the second publication",
+    "value": "the content of the second publication on the web-site",
+    "createdAt": "03.20.2020",
+    "categoryId": "category-one",
+    "publisherId": "publisher-two",
+    "image": "default-publication.png"
+  },
+
+  {
+    "id": "publication-three",
+    "title": "the third publication",
+    "value": "the content of the third publication on the web-site",
+    "createdAt": "03.20.2020",
+    "categoryId": "category-two",
+    "publisherId": "publisher-one",
+    "image": "default-publication.png"
+  },
+  {
+    "id": "publication-four",
+    "title": "the fourth publication",
+    "value": "the content of the fourth publication on the web-site",
+    "createdAt": "03.20.2020",
+    "categoryId": "category-two",
+    "publisherId": "publisher-two",
+    "image": "default-publication.png"
+  },
+
+  {
+    "id": "publication-five",
+    "title": "the fifth publication",
+    "value": "the content of the fifth publication on the web-site",
+    "createdAt": "03.20.2020",
+    "categoryId": "category-three",
+    "publisherId": "publisher-one",
+    "image": "default-publication.png"
+  },
+  {
+    "id": "publication-six",
+    "title": "the sixth publication",
+    "value": "the content of the sixth publication on the web-site",
+    "createdAt": "03.20.2020",
+    "categoryId": "category-three",
+    "publisherId": "publisher-two",
+    "image": "default-publication.png"
+  }
+]

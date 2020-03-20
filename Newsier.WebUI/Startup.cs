@@ -72,8 +72,8 @@ namespace Newsier.WebUI
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
-                   Path.Combine(Directory.GetCurrentDirectory(), "Static")),
-                RequestPath = "/Static"
+                   Path.Combine(Directory.GetCurrentDirectory(), "Assets")),
+                RequestPath = "/Assets"
             });
             app.UseCors("CorsPolicy");
             app.UseHttpsRedirection();
