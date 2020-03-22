@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Newsier.Application.Mappings;
+﻿using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
 
 namespace Newsier.Application.Queries.GetPublisher

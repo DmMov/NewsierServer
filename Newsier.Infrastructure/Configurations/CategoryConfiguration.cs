@@ -1,9 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Newsier.Application.Interfaces;
 using Newsier.Domain.Entities;
-using Newsier.Infrastructure.Services;
-using System;
+using Newsier.Infrastructure.Helpers;
 
 namespace Newsier.Infrastructure.Configurations
 {
@@ -15,26 +13,7 @@ namespace Newsier.Infrastructure.Configurations
                 .HasMaxLength(32)
                 .IsRequired();
 
-            builder.HasData(
-                new Category
-                {
-                    Id = "category-one",
-                    Name = "fashion",
-                    CreatedAt = DateTime.Now
-                },
-                new Category
-                {
-                    Id = "category-two",
-                    Name = "tech",
-                    CreatedAt = DateTime.Now
-                },
-                new Category
-                {
-                    Id = "category-three",
-                    Name = "health",
-                    CreatedAt = DateTime.Now
-                }
-            );
+            builder.HasData(SeedHelper.SeedData<Category>("categories.json"));
         }
     }
 }

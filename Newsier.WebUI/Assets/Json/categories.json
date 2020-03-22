@@ -1,3 +1,14 @@
-{
-
-}
+[
+  {
+    "id": "category-one",
+    "name": "Технології"
+  },
+  {
+    "id": "category-two",
+    "name": "Наука"
+  },
+  {
+    "id": "category-three",
+    "name": "Економіка"
+  }
+]

@@ -2,10 +2,6 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Newsier.Domain.Entities;
 using Newsier.Infrastructure.Helpers;
-using Newtonsoft.Json;
-using System;
-using System.Collections.Generic;
-using System.IO;
 
 namespace Newsier.Infrastructure.Configurations
 {

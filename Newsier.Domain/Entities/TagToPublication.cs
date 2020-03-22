@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Newsier.Domain.Entities
+﻿namespace Newsier.Domain.Entities
 {
     public class TagToPublication : BaseEntity
     {

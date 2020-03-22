@@ -1,8 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Moq;
-using Newsier.Application.Helpers;
 using Newsier.Application.Interfaces;
-using Newsier.Domain.Entities;
 using Newsier.Infrastructure;
 using System;
 
