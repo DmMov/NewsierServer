@@ -2,28 +2,22 @@
 using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using Newsier.Application.Base;
 using Newsier.Application.Interfaces;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Newsier.Application.Queries.GetPublisher
+namespace Newsier.Application.Queries.GetAuthenticatedPublisher
 {
-    public sealed class GetPublisherQuery : IRequest<PublisherVm>
+    public sealed class GetAuthenticatedPublisherQuery : IRequest<PublisherVm>
     {
         public string PublisherId { get; set; }
 
-        public sealed class Handler : IRequestHandler<GetPublisherQuery, PublisherVm>
+        public sealed class Handler : QueryHandlerBase, IRequestHandler<GetAuthenticatedPublisherQuery, PublisherVm>
         {
-            private readonly INewsierContext _context;
-            private readonly IMapper _mapper;
+            public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
 
-            public Handler(INewsierContext context, IMapper mapper)
-            {
-                _context = context;
-                _mapper = mapper;
-            }
-
-            public async Task<PublisherVm> Handle(GetPublisherQuery request, CancellationToken cancellationToken)
+            public async Task<PublisherVm> Handle(GetAuthenticatedPublisherQuery request, CancellationToken cancellationToken)
             {
                 PublisherVm publisher = await _context.Publishers
                     .ProjectTo<PublisherVm>(_mapper.ConfigurationProvider)

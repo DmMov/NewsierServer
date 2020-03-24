@@ -25,8 +25,8 @@ namespace Newsier.Application.UnitTests.Queries.GetPublications
         [Fact]
         public async Task Handle_ReturnsCorrectList()
         {
-            GetPublicationsQuery query = new GetPublicationsQuery();
-            GetPublicationsQuery.Handler handler = new GetPublicationsQuery.Handler(_context, _mapper);
+            GetAllPublicationsQuery query = new GetAllPublicationsQuery();
+            GetAllPublicationsQuery.Handler handler = new GetAllPublicationsQuery.Handler(_context, _mapper);
 
             List<PublicationVm> result = await handler.Handle(query, CancellationToken.None);
 

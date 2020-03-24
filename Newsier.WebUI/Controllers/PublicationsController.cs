@@ -1,16 +1,16 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Newsier.Application.Queries.GetPublications;
+using Newsier.Application.Queries.GetAllPublications;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
 namespace Newsier.WebUI.Controllers
 {
-    public class PublicationsController : BaseController
+    public sealed class PublicationsController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<List<PublicationVm>>> Get()
+        public async Task<ActionResult<List<PublicationVm>>> GetAll()
         {
-            return Ok(await Mediator.Send(new GetPublicationsQuery()));
+            return Ok(await Mediator.Send(new GetAllPublicationsQuery()));
         }
     }
 }

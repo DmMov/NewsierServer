@@ -2,7 +2,7 @@
 using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
 
-namespace Newsier.Application.Queries.GetPublications
+namespace Newsier.Application.Queries.GetAllPublications
 {
     public sealed class PublicationVm : IMapFrom<Publication>
     {

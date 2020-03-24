@@ -1,0 +1,29 @@
+﻿using AutoMapper;
+using AutoMapper.QueryableExtensions;
+using MediatR;
+using Microsoft.EntityFrameworkCore;
+using Newsier.Application.Base;
+using Newsier.Application.Interfaces;
+using System.Collections.Generic;
+using System.Threading;
+using System.Threading.Tasks;
+
+namespace Newsier.Application.Queries.GetAllPublications
+{
+    public sealed class GetAllPublicationsQuery : IRequest<List<PublicationVm>>
+    {
+        public sealed class Handler : QueryHandlerBase, IRequestHandler<GetAllPublicationsQuery, List<PublicationVm>>
+        {
+            public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
+
+            public async Task<List<PublicationVm>> Handle(GetAllPublicationsQuery request, CancellationToken cancellationToken)
+            {
+                List<PublicationVm> publications = await _context.Publications
+                    .ProjectTo<PublicationVm>(_mapper.ConfigurationProvider)
+                    .ToListAsync();
+
+                return publications;
+            }
+        }
+    }
+}
