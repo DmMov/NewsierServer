@@ -8,6 +8,7 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Newsier.Application;
 using Newsier.Infrastructure;
+using Newsier.WebUI.Middlewares;
 using System.IO;
 using System.Text;
 
@@ -69,6 +70,7 @@ namespace Newsier.WebUI
                 RequestPath = "/Assets"
             });
             app.UseCors("CorsPolicy");
+            app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();

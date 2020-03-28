@@ -7,6 +7,8 @@ namespace Newsier.Application.Exceptions
 {
     public class ValidationException : Exception
     {
+        public IDictionary<string, string[]> Failures { get; }
+
         public ValidationException()
             : base("One or more validation failures have occurred.")
         {
@@ -27,7 +29,5 @@ namespace Newsier.Application.Exceptions
                 Failures.Add(propertyName, propertyFailures);
             }
         }
-
-        public IDictionary<string, string[]> Failures { get; }
     }
 }
