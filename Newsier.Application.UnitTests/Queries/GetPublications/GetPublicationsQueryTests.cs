@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
-using Newsier.Application.Queries.GetPublications;
+using Newsier.Application.Queries.GetAllPublications;
 using Newsier.Application.UnitTests.Common;
+using Newsier.Application.ViewModels;
 using Newsier.Infrastructure;
 using Shouldly;
 using System.Collections.Generic;

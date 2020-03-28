@@ -25,7 +25,8 @@
     "createdAt": "03.23.2020",
     "categoryId": "category-one",
     "publisherId": "publisher-one",
-    "image": "london.jpg"
+    "image": "london.jpg",
+    "views":  234
   },
   {
     "id": "publication-four",
@@ -34,7 +35,8 @@
     "createdAt": "03.23.2020",
     "categoryId": "category-two",
     "publisherId": "publisher-two",
-    "image": "top-10.jpg"
+    "image": "top-10.jpg",
+    "views": 17
   },
 
   {
@@ -44,7 +46,8 @@
     "createdAt": "03.23.2020",
     "categoryId": "category-three",
     "publisherId": "publisher-one",
-    "image": "food-masters.jpg"
+    "image": "food-masters.jpg",
+    "views":  46
   },
   {
     "id": "publication-six",
@@ -71,7 +74,8 @@
     "createdAt": "03.23.2020",
     "categoryId": "category-one",
     "publisherId": "publisher-two",
-    "image": "free-wi-fi.jpg"
+    "image": "free-wi-fi.jpg",
+    "views": 917
   },
   {
     "id": "publication-nine",
@@ -80,7 +84,8 @@
     "createdAt": "03.23.2020",
     "categoryId": "category-one",
     "publisherId": "publisher-two",
-    "image": "spaceX.jpg"
+    "image": "spaceX.jpg",
+    "views": 91
   },
   {
     "id": "publication-ten",
@@ -134,6 +139,7 @@
     "createdAt": "03.23.2020",
     "categoryId": "category-two",
     "publisherId": "publisher-two",
-    "image": "coffee.jpg"
+    "image": "coffee.jpg",
+    "views": 91
   }
 ]

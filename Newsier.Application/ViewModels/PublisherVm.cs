@@ -1,7 +1,7 @@
 ﻿using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
 
-namespace Newsier.Application.Queries.GetAuthenticatedPublisher
+namespace Newsier.Application.ViewModels
 {
     public sealed class PublisherVm : IMapFrom<Publisher>
     {
