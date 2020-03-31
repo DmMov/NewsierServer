@@ -1,7 +1,4 @@
 ﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Newsier.Application.Queries.GetPopularPublications
 {

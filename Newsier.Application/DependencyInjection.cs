@@ -1,12 +1,12 @@
 ﻿using AutoMapper;
+using FluentValidation;
 using MediatR;
 using Microsoft.Extensions.DependencyInjection;
 using Newsier.Application.Behaviors;
-using System.Reflection;
-using FluentValidation;
-using System.Linq;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Reflection;
 
 namespace Newsier.Application
 {

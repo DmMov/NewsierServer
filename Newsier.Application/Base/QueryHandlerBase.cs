@@ -1,9 +1,5 @@
 ﻿using AutoMapper;
-using MediatR;
 using Newsier.Application.Interfaces;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Newsier.Application.Base
 {
