@@ -1,10 +1,10 @@
 ﻿using FluentValidation;
+using FluentValidation.Results;
 using MediatR;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
-using ValidationException = Newsier.Application.Exceptions.ValidationException;
 
 namespace Newsier.Application.Behaviors
 {
@@ -22,9 +22,9 @@ namespace Newsier.Application.Behaviors
         {
             if (_validators.Any())
             {
-                var context = new ValidationContext(request);
+                ValidationContext context = new ValidationContext(request);
 
-                var failures = _validators
+                List<ValidationFailure> failures = _validators
                     .Select(v => v.Validate(context))
                     .SelectMany(result => result.Errors)
                     .Where(f => f != null)
