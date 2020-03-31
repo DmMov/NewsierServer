@@ -23,8 +23,8 @@ namespace Newsier.WebUI
 
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddApplication();
             services.AddInfrastructure(Configuration);
+            services.AddApplication();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer(options =>
                 {
@@ -53,15 +53,15 @@ namespace Newsier.WebUI
 
         public void Configure(IApplicationBuilder app)
         {
+            app.UseCors("CorsPolicy");
+            app.UseCustomExceptionHandler();
+            app.UseHttpsRedirection();
             app.UseStaticFiles(new StaticFileOptions
             {
                 FileProvider = new PhysicalFileProvider(
                    Path.Combine(Directory.GetCurrentDirectory(), "Assets")),
                 RequestPath = "/Assets"
             });
-            app.UseCors("CorsPolicy");
-            app.UseCustomExceptionHandler();
-            app.UseHttpsRedirection();
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();

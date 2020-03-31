@@ -35,7 +35,7 @@ namespace Newsier.Infrastructure
                 switch (entry.State)
                 {
                     case EntityState.Added:
-                        entry.Entity.Id = Guid.NewGuid().ToString();
+                        entry.Entity.Id = entry.Entity.Id ?? Guid.NewGuid().ToString();
                         entry.Entity.CreatedAt = _dateTime.Now;
                         break;
                     case EntityState.Modified:

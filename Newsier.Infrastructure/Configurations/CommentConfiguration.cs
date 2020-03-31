@@ -30,60 +30,6 @@ namespace Newsier.Infrastructure.Configurations
             builder.HasOne(c => c.Parent)
                 .WithMany(c => c.Comments)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasData(
-                new Comment
-                {
-                    Id = "comment-one",
-                    Value = "the publication is cool",
-                    CreatedAt = DateTime.Now,
-                    PublicationId = "publication-one",
-                    PublisherId = "publisher-one"
-                },
-                new Comment
-                {
-                    Id = "comment-two",
-                    Value = "the publication is cool",
-                    CreatedAt = DateTime.Now,
-                    PublicationId = "publication-one",
-                    PublisherId = "publisher-one"
-                },
-                new Comment
-                {
-                    Id = "comment-three",
-                    Value = "the publication is cool",
-                    CreatedAt = DateTime.Now,
-                    PublicationId = "publication-one",
-                    PublisherId = "publisher-one"
-                },
-                new Comment
-                {
-                    Id = "comment-four",
-                    Value = "the publication is cool",
-                    CreatedAt = DateTime.Now,
-                    PublicationId = "publication-one",
-                    PublisherId = "publisher-one",
-                    ParentId = "comment-one"
-                },
-                new Comment
-                {
-                    Id = "comment-five",
-                    Value = "the publication is cool",
-                    CreatedAt = DateTime.Now,
-                    PublicationId = "publication-one",
-                    PublisherId = "publisher-one",
-                    ParentId = "comment-one"
-                },
-                new Comment
-                {
-                    Id = "comment-six",
-                    Value = "the publication is cool",
-                    CreatedAt = DateTime.Now,
-                    PublicationId = "publication-one",
-                    PublisherId = "publisher-one",
-                    ParentId = "comment-two"
-                }
-            );
         }
     }
 }

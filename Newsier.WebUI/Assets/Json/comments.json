@@ -1,0 +1,41 @@
+[
+  {
+    "id": "comment-one",
+    "value": "the publication is cool",
+    "publicationid": "publication-one",
+    "publisherid": "publisher-one"
+  },
+  {
+    "id": "comment-two",
+    "value": "the publication is cool",
+    "publicationid": "publication-one",
+    "publisherid": "publisher-one"
+  },
+  {
+    "id": "comment-three",
+    "value": "the publication is cool",
+    "publicationid": "publication-one",
+    "publisherid": "publisher-one"
+  },
+  {
+    "id": "comment-four",
+    "value": "the publication is cool",
+    "publicationid": "publication-one",
+    "publisherid": "publisher-one",
+    "parentid": "comment-one"
+  },
+  {
+    "id": "comment-five",
+    "value": "the publication is cool",
+    "publicationid": "publication-one",
+    "publisherid": "publisher-one",
+    "parentid": "comment-one"
+  },
+  {
+    "id": "comment-six",
+    "value": "the publication is cool",
+    "publicationid": "publication-one",
+    "publisherid": "publisher-one",
+    "parentid": "comment-two"
+  }
+]

@@ -1,0 +1,38 @@
+[
+  {
+    "id": "tag-one",
+    "value": "hello"
+  },
+  {
+    "id": "tag-two",
+    "value": "welcome"
+  },
+  {
+    "id": "tag-three",
+    "value": "decisions"
+  },
+  {
+    "id": "tag-four",
+    "value": "2020"
+  },
+  {
+    "id": "tag-five",
+    "value": "dress"
+  },
+  {
+    "id": "tag-six",
+    "value": "job"
+  },
+  {
+    "id": "tag-seven",
+    "value": "world actions"
+  },
+  {
+    "id": "tag-eight",
+    "value": "cool science"
+  },
+  {
+    "id": "tag-nine",
+    "value": "tech 2020"
+  }
+]

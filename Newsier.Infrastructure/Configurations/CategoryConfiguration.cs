@@ -12,8 +12,6 @@ namespace Newsier.Infrastructure.Configurations
             builder.Property(c => c.Name)
                 .HasMaxLength(32)
                 .IsRequired();
-
-            builder.HasData(SeedHelper.SeedData<Category>("categories.json"));
         }
     }
 }

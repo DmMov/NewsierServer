@@ -34,8 +34,6 @@ namespace Newsier.Infrastructure.Configurations
             builder.HasOne(p => p.Publisher)
                 .WithMany(pub => pub.Publications)
                 .OnDelete(DeleteBehavior.Restrict);
-
-            builder.HasData(SeedHelper.SeedData<Publication>("publications.json"));
         }
     }
 }

@@ -1,21 +1,23 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
 using System.IO;
+using System.Threading.Tasks;
 
 namespace Newsier.Infrastructure.Helpers
 {
     public static class SeedHelper
     {
-        public static List<TEntity> SeedData<TEntity>(string fileName)
+        public static async Task<List<TEntity>> SeedDataAsync<TEntity>(string fileName)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             string path = "Assets/Json";
             string fullPath = Path.Combine(currentDirectory, path, fileName);
 
-            var result = new List<TEntity>();
+            List<TEntity> result = new List<TEntity>();
+
             using (StreamReader reader = new StreamReader(fullPath))
             {
-                string json = reader.ReadToEnd();
+                string json = await reader.ReadToEndAsync();
                 result = JsonConvert.DeserializeObject<List<TEntity>>(json);
             }
 

@@ -35,31 +35,6 @@ namespace Newsier.Infrastructure.Configurations
                 .HasMaxLength(12)
                 .HasDefaultValue("publisher")
                 .IsRequired();
-
-            builder.HasData(
-                new Publisher
-                {
-                    Id = "publisher-one",
-                    Name = "Volodymyr",
-                    Surname = "Mylysiuk",
-                    Email = "admin@newsier.com",
-                    Password = Convert.ToBase64String(new PasswordHash("admin").ToArray()),
-                    Role = "admin",
-                    CreatedAt = DateTime.Now,
-                    Image = "default-user.png"
-                },
-                new Publisher
-                {
-                    Id = "publisher-two",
-                    Name = "Dmitriy",
-                    Surname = "Movchaniuk",
-                    Email = "publisher@newsier.com",
-                    Password = Convert.ToBase64String(new PasswordHash("publisher").ToArray()),
-                    Role = "publisher",
-                    CreatedAt = DateTime.Now,
-                    Image = "default-user.png"
-                }
-            );
         }
     }
 }

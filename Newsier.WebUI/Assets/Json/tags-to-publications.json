@@ -1,0 +1,87 @@
+[
+  {
+    "id": "tag-to-publication-one",
+    "tagid": "tag-one",
+    "publicationid": "publication-one"
+  },
+  {
+    "id": "tag-to-publication-two",
+    "tagid": "tag-two",
+    "publicationid": "publication-one"
+  },
+  {
+    "id": "tag-to-publication-three",
+    "tagid": "tag-three",
+    "publicationid": "publication-one"
+  },
+  {
+    "id": "tag-to-publication-four",
+    "tagid": "tag-four",
+    "publicationid": "publication-two"
+  },
+  {
+    "id": "tag-to-publication-five",
+    "tagid": "tag-five",
+    "publicationid": "publication-two"
+  },
+  {
+    "id": "tag-to-publication-six",
+    "tagid": "tag-six",
+    "publicationid": "publication-three"
+  },
+  {
+    "id": "tag-to-publication-seven",
+    "tagid": "tag-seven",
+    "publicationid": "publication-three"
+  },
+  {
+    "id": "tag-to-publication-eight",
+    "tagid": "tag-eight",
+    "publicationid": "publication-three"
+  },
+  {
+    "id": "tag-to-publication-nine",
+    "tagid": "tag-nine",
+    "publicationid": "publication-three"
+  },
+  {
+    "id": "tag-to-publication-ten",
+    "tagid": "tag-one",
+    "publicationid": "publication-four"
+  },
+  {
+    "id": "tag-to-publication-eleven",
+    "tagid": "tag-two",
+    "publicationid": "publication-four"
+  },
+  {
+    "id": "tag-to-publication-twelve",
+    "tagid": "tag-three",
+    "publicationid": "publication-five"
+  },
+  {
+    "id": "tag-to-publication-thirteen",
+    "tagid": "tag-four",
+    "publicationid": "publication-five"
+  },
+  {
+    "id": "tag-to-publication-fourteen",
+    "tagid": "tag-five",
+    "publicationid": "publication-six"
+  },
+  {
+    "id": "tag-to-publication-fifteen",
+    "tagid": "tag-six",
+    "publicationid": "publication-six"
+  },
+  {
+    "id": "tag-to-publication-sixteen",
+    "tagid": "tag-seven",
+    "publicationid": "publication-six"
+  },
+  {
+    "id": "tag-to-publication-seventeen",
+    "tagid": "tag-eight",
+    "publicationid": "publication-six"
+  }
+]
