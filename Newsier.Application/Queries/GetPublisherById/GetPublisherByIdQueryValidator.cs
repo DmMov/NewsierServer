@@ -4,13 +4,13 @@ using Newsier.Application.Interfaces;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Newsier.Application.Queries.GetAuthenticatedPublisher
+namespace Newsier.Application.Queries.GetPublisherById
 {
-    public sealed class GetAuthenticatedPublisherQueryValidator : AbstractValidator<GetAuthenticatedPublisherQuery>
+    public sealed class GetPublisherByIdQueryValidator : AbstractValidator<GetPublisherByIdQuery>
     {
         private readonly INewsierContext _context;
 
-        public GetAuthenticatedPublisherQueryValidator(INewsierContext context)
+        public GetPublisherByIdQueryValidator(INewsierContext context)
         {
             _context = context;
 

@@ -41,7 +41,6 @@ namespace Newsier.Application.UnitTests.Common
                     Email = "testadmin@newsier.com",
                     Password = Convert.ToBase64String(new PasswordHash("testadmin").ToArray()),
                     Role = "admin",
-                    CreatedAt = DateTime.Now,
                     Image = "test-imag"
                 },
                 new Publisher
@@ -52,7 +51,6 @@ namespace Newsier.Application.UnitTests.Common
                     Email = "testpublisher@newsier.com",
                     Password = Convert.ToBase64String(new PasswordHash("testpublisher").ToArray()),
                     Role = "publisher",
-                    CreatedAt = DateTime.Now,
                     Image = "test-imag"
                 }
             );
