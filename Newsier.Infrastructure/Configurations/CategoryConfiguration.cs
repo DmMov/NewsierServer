@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Newsier.Domain.Entities;
-using Newsier.Infrastructure.Helpers;
 
 namespace Newsier.Infrastructure.Configurations
 {
