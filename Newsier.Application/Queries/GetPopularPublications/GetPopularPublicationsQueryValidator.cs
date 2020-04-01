@@ -7,8 +7,10 @@ namespace Newsier.Application.Queries.GetPopularPublications
         public GetPopularPublicationsQueryValidator()
         {
             RuleFor(v => v.Count)
-                .LessThanOrEqualTo<GetPopularPublicationsQuery, ushort>(12)
-                .WithMessage("'Count' must be less or equal to '12'");
+                .GreaterThan((ushort)0)
+                .WithMessage("'Count' must be more than 0")
+                .LessThanOrEqualTo((ushort)12)
+                .WithMessage("'Count' must be less or equal to 12");
         }
     }
 }

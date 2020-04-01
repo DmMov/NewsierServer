@@ -15,7 +15,7 @@ namespace Newsier.Application.Queries.GetPopularPublications
 {
     public sealed class GetPopularPublicationsQuery : IRequest<List<PublicationVm>>
     {
-        public ushort Count { get; set; }
+        public ushort? Count { get; set; }
 
         public sealed class Handler : QueryHandlerBase, IRequestHandler<GetPopularPublicationsQuery, List<PublicationVm>>
         {
@@ -26,9 +26,12 @@ namespace Newsier.Application.Queries.GetPopularPublications
                 List<PublicationVm> popularPublications = await _context.Publications
                     .Where(x => x.CreatedAt > DateTime.Now.AddDays(-7))
                     .OrderByDescending(x => x.Views)
-                    .Take(request.Count)
                     .ProjectTo<PublicationVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
+
+                if (request.Count != null)
+                    popularPublications
+                        .Take(request.Count.Value);
 
                 return popularPublications;
             }

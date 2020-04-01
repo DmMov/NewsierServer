@@ -16,7 +16,7 @@ namespace Newsier.WebUI.Controllers
         }
 
         [HttpGet("popular")]
-        public async Task<ActionResult<List<PublicationVm>>> GetPupular(ushort count)
+        public async Task<ActionResult<List<PublicationVm>>> GetPupular(ushort? count)
         {
             return Ok(await Mediator.Send(new GetPopularPublicationsQuery { Count = count }));
         }

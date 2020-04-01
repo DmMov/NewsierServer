@@ -35,6 +35,7 @@
 
   <ItemGroup>
     <Folder Include="Commands\" />
+    <Folder Include="Queries\GetPopularPublications\" />
   </ItemGroup>
 
 </Project>
