@@ -9,22 +9,22 @@ using System.Threading;
 using System.Threading.Tasks;
 using Xunit;
 
-namespace Newsier.Application.UnitTests.Queries.GetPublications
+namespace Newsier.Application.UnitTests.Queries.GetAllPublications
 {
     [Collection("QueryTests")]
-    public sealed class GetPublicationsQueryTests
+    public sealed class GetAllPublicationsQueryTests
     {
         private readonly NewsierContext _context;
         private readonly IMapper _mapper;
 
-        public GetPublicationsQueryTests(QueryTestFixture fixture)
+        public GetAllPublicationsQueryTests(QueryTestFixture fixture)
         {
             _context = fixture.Context;
             _mapper = fixture.Mapper;
         }
 
         [Fact]
-        public async Task Handle_ReturnsCorrectList()
+        public async Task Handle_ShouldReturnCorrectListAndElementsCount()
         {
             GetAllPublicationsQuery query = new GetAllPublicationsQuery();
             GetAllPublicationsQuery.Handler handler = new GetAllPublicationsQuery.Handler(_context, _mapper);
@@ -32,7 +32,8 @@ namespace Newsier.Application.UnitTests.Queries.GetPublications
             List<PublicationVm> result = await handler.Handle(query, CancellationToken.None);
 
             result.ShouldBeOfType<List<PublicationVm>>();
-            result.Count.ShouldBe(6);
+            result.ShouldNotBeNull();
+            result.Count.ShouldBe(5);
         }
     }
 }
