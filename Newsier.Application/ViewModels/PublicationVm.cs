@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Newsier.Application.ViewModels
 {
@@ -16,6 +18,7 @@ namespace Newsier.Application.ViewModels
         public string Category { get; set; }
         public string CreatedAt { get; set; }
         public string LastModifiedAt { get; set; }
+        public ICollection<TagVm> Tags { get; set; }
 
         public void Mapping(Profile profile)
         {
@@ -23,7 +26,15 @@ namespace Newsier.Application.ViewModels
                 .ForMember(x => x.Publisher, opt => opt.MapFrom(x => $"{x.Publisher.Name} {x.Publisher.Surname}"))
                 .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
                 .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("MM.dd.yyyy")))
-                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("MM.dd.yyyy")));
+                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("MM.dd.yyyy")))
+                .ForMember(
+                    x => x.Tags,
+                    opt => opt.MapFrom(
+                        x => x.TagsToPublications
+                            .Where(tp => tp.PublicationId == x.Id)
+                            .Select(tp => tp.Tag)
+                    )
+                );
         }
     }
 }
