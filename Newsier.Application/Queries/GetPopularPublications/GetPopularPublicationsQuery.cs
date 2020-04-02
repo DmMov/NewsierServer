@@ -30,8 +30,9 @@ namespace Newsier.Application.Queries.GetPopularPublications
                     .ToListAsync();
 
                 if (request.Count != null)
-                    popularPublications
-                        .Take(request.Count.Value);
+                    popularPublications = popularPublications
+                        .Take(request.Count.Value)
+                        .ToList();
 
                 return popularPublications;
             }
