@@ -1,41 +1,40 @@
 [
   {
     "id": "comment-one",
-    "value": "the publication is cool",
+    "value": "крута публікація",
     "publicationid": "publication-one",
-    "publisherid": "publisher-one"
+    "publisherid": "publisher-two"
   },
   {
     "id": "comment-two",
-    "value": "the publication is cool",
+    "value": "дякую",
     "publicationid": "publication-one",
-    "publisherid": "publisher-one"
+    "publisherid": "publisher-two",
+    "parentid": "comment-one"
   },
   {
     "id": "comment-three",
-    "value": "the publication is cool",
-    "publicationid": "publication-one",
+    "value": "крута публікація",
+    "publicationid": "publication-eight",
     "publisherid": "publisher-one"
   },
   {
     "id": "comment-four",
-    "value": "the publication is cool",
-    "publicationid": "publication-one",
-    "publisherid": "publisher-one",
-    "parentid": "comment-one"
+    "value": "дякую",
+    "publicationid": "publication-eight",
+    "publisherid": "publisher-two",
+    "parentid": "comment-three"
   },
   {
     "id": "comment-five",
-    "value": "the publication is cool",
-    "publicationid": "publication-one",
-    "publisherid": "publisher-one",
-    "parentid": "comment-one"
+    "value": "крута публікація",
+    "publicationid": "publication-fifteen",
+    "publisherid": "publisher-one"
   },
   {
     "id": "comment-six",
-    "value": "the publication is cool",
-    "publicationid": "publication-one",
-    "publisherid": "publisher-one",
-    "parentid": "comment-two"
+    "value": "дуже крута",
+    "publicationid": "publication-fifteen",
+    "publisherid": "publisher-one"
   }
 ]
