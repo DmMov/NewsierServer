@@ -1,15 +1,15 @@
 [
   {
     "id": "tag-one",
-    "value": "hello"
+    "value": "2019"
   },
   {
     "id": "tag-two",
-    "value": "welcome"
+    "value": "tesla"
   },
   {
     "id": "tag-three",
-    "value": "decisions"
+    "value": "київ"
   },
   {
     "id": "tag-four",
@@ -17,22 +17,38 @@
   },
   {
     "id": "tag-five",
-    "value": "dress"
+    "value": "британія"
   },
   {
     "id": "tag-six",
-    "value": "job"
+    "value": "huawei"
   },
   {
     "id": "tag-seven",
-    "value": "world actions"
+    "value": "spaceX"
   },
   {
     "id": "tag-eight",
-    "value": "cool science"
+    "value": "кава"
   },
   {
     "id": "tag-nine",
-    "value": "tech 2020"
+    "value": "дія"
+  },
+  {
+    "id": "tag-ten",
+    "value": "ілон маск"
+  },
+  {
+    "id": "tag-eleven",
+    "value": "світ"
+  },
+  {
+    "id": "tag-twelwe",
+    "value": "wi-fi"
+  },
+  {
+    "id": "tag-thirteen",
+    "value": "free"
   }
 ]
