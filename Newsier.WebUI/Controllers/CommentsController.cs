@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newsier.Application.Commands.CreateComment;
+using Newsier.Application.Queries.GetCommentById;
 using Newsier.Application.Queries.GetCommentsByPublication;
 using Newsier.Application.ViewModels;
 
@@ -18,6 +19,12 @@ namespace Newsier.WebUI.Controllers
         public async Task<ActionResult<List<CommentVm>>> GetByPublication(string publicationId)
         {
             return Ok(await Mediator.Send(new GetCommentsByPublicationQuery { PublicationId = publicationId }));
+        }
+
+        [HttpGet("{id}")]
+        public async Task<ActionResult<CommentSimpleVm>> GetById(string id)
+        {
+            return Ok(await Mediator.Send(new GetCommentByIdQuery { CommentId = id }));
         }
 
         [Authorize]

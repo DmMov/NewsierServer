@@ -32,7 +32,8 @@ namespace Newsier.Application.Commands.CreateComment
                     Id = Guid.NewGuid().ToString(),
                     Value = request.Comment,
                     PublisherId = request.PublisherId,
-                    PublicationId = request.PublicationId
+                    PublicationId = request.PublicationId,
+                    ParentId = request.ParentId
                 };
                 
                 await _context.Comments.AddAsync(comment);

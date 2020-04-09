@@ -20,15 +20,23 @@ namespace Newsier.Application.Queries.GetCommentsByPublication
 
         public sealed class Handler : QueryHandlerBase, IRequestHandler<GetCommentsByPublicationQuery, List<CommentVm>>
         {
-            public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
+            private readonly ICommentsService _commentsService;
+
+            public Handler(INewsierContext context, IMapper mapper, ICommentsService commentsService) : base(context, mapper)
+            {
+                _commentsService = commentsService;
+            }
 
             public async Task<List<CommentVm>> Handle(GetCommentsByPublicationQuery request, CancellationToken cancellationToken)
             {
                 List<CommentVm> comments = await _context.Comments
-                    .Where(comment => comment.PublicationId == request.PublicationId && comment.ParentId == null)
+                    .Include(x => x.Comments)
+                    .Where(comment => comment.PublicationId == request.PublicationId)
                     .OrderByDescending(comment => comment.CreatedAt)
                     .ProjectTo<CommentVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
+
+                comments = _commentsService.RestructureComments(comments).Where(x => x.ParentId == null).ToList();
 
                 return comments;
             }

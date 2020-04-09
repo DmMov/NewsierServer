@@ -15,6 +15,7 @@ namespace Newsier.Application.ViewModels
         public string PublisherId { get; set; }
         public string Publisher { get; set; }
         public string PublisherImage { get; set; }
+        public string ParentId { get; set; }
         public string CreatedAt { get; set; }
         public string LastModifiedAt { get; set; }
         public ICollection<CommentVm> Comments { get; set; }
