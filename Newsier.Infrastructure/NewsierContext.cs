@@ -2,7 +2,6 @@
 using Microsoft.EntityFrameworkCore.ChangeTracking;
 using Newsier.Application.Interfaces;
 using Newsier.Domain.Entities;
-using System;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;

@@ -1,7 +1,5 @@
 ﻿using Newsier.Application.ViewModels;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Newsier.Application.Interfaces
 {

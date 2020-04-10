@@ -1,9 +1,7 @@
 ﻿using Newsier.Application.Interfaces;
 using Newsier.Application.ViewModels;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 
 namespace Newsier.Infrastructure.Services
 {
