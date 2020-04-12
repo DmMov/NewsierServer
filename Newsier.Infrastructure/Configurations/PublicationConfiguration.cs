@@ -20,19 +20,13 @@ namespace Newsier.Infrastructure.Configurations
             builder.Property(p => p.Value)
                 .IsRequired();
 
-            builder.Property(p => p.PublisherId)
-                .IsRequired();
-
-            builder.Property(p => p.CategoryId)
-                .IsRequired();
-
             builder.HasOne(p => p.Category)
                 .WithMany(categ => categ.Publications)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(p => p.Publisher)
                 .WithMany(pub => pub.Publications)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.SetNull);
         }
     }
 }

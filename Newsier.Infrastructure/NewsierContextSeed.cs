@@ -16,24 +16,24 @@ namespace Newsier.Infrastructure
                     new Publisher
                     {
                         Id = "publisher-one",
-                        Name = "Volodymyr",
-                        Surname = "Mylysiuk",
-                        Email = "admin@newsier.com",
+                        Name = "володимир",
+                        Surname = "милисюк",
+                        Email = "volodymyr.admin@newsier.com",
                         Password = Convert.ToBase64String(new PasswordHash("admin").ToArray()),
                         Role = "admin",
                         CreatedAt = DateTime.Now,
-                        Image = "default-user.png"
+                        Image = "volodymyr.png"
                     },
                     new Publisher
                     {
                         Id = "publisher-two",
-                        Name = "Dmitriy",
-                        Surname = "Movchaniuk",
-                        Email = "publisher@newsier.com",
+                        Name = "любомир",
+                        Surname = "милисюк",
+                        Email = "liubomyr.publisher@newsier.com",
                         Password = Convert.ToBase64String(new PasswordHash("publisher").ToArray()),
                         Role = "publisher",
                         CreatedAt = DateTime.Now,
-                        Image = "default-user.png"
+                        Image = "user.png"
                     }
                 );
 

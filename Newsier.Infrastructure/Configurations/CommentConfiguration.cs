@@ -12,19 +12,13 @@ namespace Newsier.Infrastructure.Configurations
                 .HasMaxLength(256)
                 .IsRequired();
 
-            builder.Property(c => c.PublicationId)
-                .IsRequired();
-
-            builder.Property(c => c.PublisherId)
-                .IsRequired();
-
             builder.HasOne(c => c.Publisher)
                 .WithMany(pub => pub.Comments)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(c => c.Publication)
                 .WithMany(publ => publ.Comments)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.SetNull);
 
             builder.HasOne(c => c.Parent)
                 .WithMany(c => c.Comments)
