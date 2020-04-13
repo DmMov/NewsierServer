@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Base;
 using Newsier.Application.Interfaces;
 using Newsier.Application.ViewModels;
+using Newsier.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,11 +21,20 @@ namespace Newsier.Application.Queries.GetPublicationById
 
             public async Task<DetailedPublicationVm> Handle(GetPublicationByIdQuery request, CancellationToken cancellationToken)
             {
-                DetailedPublicationVm publication = await _context.Publications
+                DetailedPublicationVm publicationVm = await _context.Publications
                     .ProjectTo<DetailedPublicationVm>(_mapper.ConfigurationProvider)
                     .SingleOrDefaultAsync(publication => publication.Id == request.PublicationId);
 
-                return publication;
+                Publication publication = await _context.Publications
+                    .SingleOrDefaultAsync(publication => publication.Id == request.PublicationId);
+
+                publication.Views++;
+
+                _context.Publications.Update(publication);
+
+                await _context.SaveChangesAsync(cancellationToken);
+
+                return publicationVm;
             }
         }
     }
