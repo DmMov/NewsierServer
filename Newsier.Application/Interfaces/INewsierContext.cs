@@ -15,5 +15,6 @@ namespace Newsier.Application.Interfaces
         DbSet<TagToPublication> TagsToPublications { get; set; }
 
         Task<int> SaveChangesAsync(CancellationToken cancellationToken);
+        DbSet<TEntity> Set<TEntity>() where TEntity : class;
     }
 }
