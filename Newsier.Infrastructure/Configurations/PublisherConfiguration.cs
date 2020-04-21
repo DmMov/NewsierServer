@@ -10,7 +10,7 @@ namespace Newsier.Infrastructure.Configurations
         {
             builder.Property(p => p.Image)
                 .HasMaxLength(256)
-                .HasDefaultValue("default-user.png")
+                .HasDefaultValue("user.png")
                 .IsRequired();
 
             builder.Property(p => p.Name)
