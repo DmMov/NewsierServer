@@ -2,6 +2,7 @@
 using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
 using System.Collections.Generic;
+using System.Globalization;
 
 namespace Newsier.Application.ViewModels
 {
@@ -19,11 +20,13 @@ namespace Newsier.Application.ViewModels
 
         public void Mapping(Profile profile)
         {
+            DateTimeFormatInfo dateTimeFormatInfo = CultureInfo.GetCultureInfo("uk-UA").DateTimeFormat;
+
             profile.CreateMap<Comment, CommentVm>()
                 .ForMember(x => x.Publisher, opt => opt.MapFrom(x => $"{x.Publisher.Name} {x.Publisher.Surname}"))
                 .ForMember(x => x.PublisherImage, opt => opt.MapFrom(x => x.Publisher.Image))
-                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("MM.dd.yyyy")))
-                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("MM.dd.yyyy")));
+                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
+                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)));
         }
     }
 }
