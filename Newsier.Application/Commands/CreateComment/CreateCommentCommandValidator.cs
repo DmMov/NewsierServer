@@ -1,22 +1,16 @@
 ﻿using FluentValidation;
-using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Interfaces;
 using Newsier.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace Newsier.Application.Commands.CreateComment
 {
     public sealed class CreateCommentCommandValidator : AbstractValidator<CreateCommentCommand>
     {
-        private readonly INewsierContext _context;
+        private readonly IEntitiesSearchService _entitiesSearchService;
 
-        public CreateCommentCommandValidator(INewsierContext context)
+        public CreateCommentCommandValidator(IEntitiesSearchService entitiesSearchService)
         {
-            _context = context;
+            _entitiesSearchService = entitiesSearchService;
 
             RuleFor(x => x.Value)
                 .NotEmpty()
@@ -29,20 +23,14 @@ namespace Newsier.Application.Commands.CreateComment
             RuleFor(x => x.PublicationId)
                 .NotEmpty()
                 .WithMessage("'PublicationId' is null or an empty string")
-                .MustAsync(Exist<Publication>)
+                .MustAsync(_entitiesSearchService.ExistAsync<Publication>)
                 .WithMessage("There is no publication with the specified 'PublicationId'");
 
             RuleFor(x => x.PublisherId)
                 .NotEmpty()
                 .WithMessage("'PublisherId' is null or an empty string")
-                .MustAsync(Exist<Publisher>)
+                .MustAsync(_entitiesSearchService.ExistAsync<Publisher>)
                 .WithMessage("There is no publisher with the specified 'PublisherId'");
-        }
-
-        public async Task<bool> Exist<TEntity>(string id, CancellationToken cancellationToken) where TEntity : BaseEntity
-        {
-            return await _context.Set<TEntity>()
-                .AnyAsync(x => x.Id == id, cancellationToken);
         }
     }
 }

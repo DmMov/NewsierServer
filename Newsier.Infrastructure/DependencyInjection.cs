@@ -17,9 +17,10 @@ namespace Newsier.Infrastructure
                )
             );
             services.AddScoped<INewsierContext>(provider => provider.GetService<NewsierContext>());
-            services.AddTransient<IDateTime, DateTimeService>();
-            services.AddTransient<ITokenService, TokenService>();
-            services.AddTransient<ICommentsService, CommentsService>();
+            services.AddScoped<IDateTime, DateTimeService>();
+            services.AddScoped<ITokenService, TokenService>();
+            services.AddScoped<ICommentsService, CommentsService>();
+            services.AddScoped<IEntitiesSearchService, EntitiesSearchService>();
 
             return services;
         }

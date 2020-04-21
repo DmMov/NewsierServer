@@ -3,10 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Exceptions;
 using Newsier.Application.Interfaces;
 using Newsier.Domain.Entities;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 

@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Exceptions;
 using Newsier.Application.Helpers;
 using Newsier.Application.Interfaces;
+using Newsier.Application.ViewModels;
 using Newsier.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -40,8 +41,6 @@ namespace Newsier.Application.Commands.SignIn
 
                 PasswordHash hash = new PasswordHash(hashBytes);
 
-                SignInResponseVm vm = new SignInResponseVm();
-
                 if (!hash.Verify(request.Password))
                     throw new BadRequestException("incorect email or password");
 
@@ -51,7 +50,10 @@ namespace Newsier.Application.Commands.SignIn
                     new Claim(ClaimTypes.Role, publisher.Role)
                 };
 
-                vm.Token = _tokenService.BuildToken(claims);
+                SignInResponseVm vm = new SignInResponseVm
+                {
+                    Token = _tokenService.BuildToken(claims)
+                };
 
                 return vm;
             }

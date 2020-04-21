@@ -1,4 +1,4 @@
-﻿namespace Newsier.Application.Commands.SignIn
+﻿namespace Newsier.Application.ViewModels
 {
     public sealed class SignInResponseVm
     {
