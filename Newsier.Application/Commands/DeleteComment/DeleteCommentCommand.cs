@@ -32,24 +32,24 @@ namespace Newsier.Application.Commands.DeleteComment
                 if (comment == null)
                     throw new NotFoundException(nameof(Comment), request.CommentId);
 
-                await DeleteCommentAsync(_context, comment);
+                await DeleteCommentAsync(comment);
 
                 await _context.SaveChangesAsync(cancellationToken);
 
                 return comment.Id;
             }
 
-            private async Task DeleteCommentAsync(INewsierContext context, Comment comment)
+            private async Task DeleteCommentAsync(Comment comment)
             {
-                List<Comment> comments = await context.Comments
+                List<Comment> comments = await _context.Comments
                     .Where(c => c.ParentId == comment.Id)
                     .ToListAsync();
 
                 if (comment.Comments.Count != 0)
                     foreach (Comment innerComment in comments)
-                        await DeleteCommentAsync(context, innerComment);
+                        await DeleteCommentAsync(innerComment);
 
-                context.Comments.Remove(comment);
+                _context.Comments.Remove(comment);
             }
         }
     }
