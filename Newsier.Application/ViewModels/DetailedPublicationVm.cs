@@ -31,8 +31,8 @@ namespace Newsier.Application.ViewModels
                 .ForMember(x => x.PublisherImage, opt => opt.MapFrom(x => x.Publisher.Image))
                 .ForMember(x => x.Publisher, opt => opt.MapFrom(x => $"{x.Publisher.Name} {x.Publisher.Surname}"))
                 .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
-                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
-                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
+                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy, hh:mm", dateTimeFormatInfo)))
+                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("dd MMMM, yyyy, hh:mm", dateTimeFormatInfo)))
                 .ForMember(
                     x => x.Tags,
                     opt => opt.MapFrom(

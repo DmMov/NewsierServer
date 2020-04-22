@@ -45,14 +45,8 @@ namespace Newsier.Application.Queries.GetCommentsByPublication
                         .ToListAsync();
 
                     if (childComments.Count != 0)
-                    {
-                        comment.Comments = childComments;
-
                         foreach (CommentVm innerComment in comment.Comments)
-                        {
-                            innerComment.Comments = await StructureCommentsAsync(innerComment.Comments.ToList());
-                        }
-                    }
+                            innerComment.Comments = await StructureCommentsAsync(childComments);
                 }
 
                 return comments;
