@@ -39,14 +39,19 @@ namespace Newsier.Application.Queries.GetCommentsByPublication
                 foreach (CommentVm comment in comments)
                 {
                     List<CommentVm> childComments = await _context.Comments
+                        .Include(c => c.Comments)
                         .Where(c => c.ParentId == comment.Id)
                         .OrderByDescending(comment => comment.CreatedAt)
                         .ProjectTo<CommentVm>(_mapper.ConfigurationProvider)
                         .ToListAsync();
 
                     if (childComments.Count != 0)
+                    {
+                        comment.Comments = childComments;
+
                         foreach (CommentVm innerComment in comment.Comments)
-                            innerComment.Comments = await StructureCommentsAsync(childComments);
+                            await StructureCommentsAsync(innerComment.Comments.ToList());
+                    }
                 }
 
                 return comments;
