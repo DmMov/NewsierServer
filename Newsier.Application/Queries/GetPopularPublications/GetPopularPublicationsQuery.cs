@@ -23,18 +23,18 @@ namespace Newsier.Application.Queries.GetPopularPublications
 
             public async Task<List<PublicationVm>> Handle(GetPopularPublicationsQuery request, CancellationToken cancellationToken)
             {
-                List<PublicationVm> popularPublications = await _context.Publications
-                    .Where(x => x.CreatedAt > DateTime.Now.AddDays(-7))
+                List<PublicationVm> publications = await _context.Publications
+                    .Where(x => x.CreatedAt > DateTime.Now.AddMonths(-1))
                     .OrderByDescending(x => x.Views)
                     .ProjectTo<PublicationVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
                 if (request.Count != null)
-                    popularPublications = popularPublications
+                    publications = publications
                         .Take(request.Count.Value)
                         .ToList();
 
-                return popularPublications;
+                return publications;
             }
         }
     }
