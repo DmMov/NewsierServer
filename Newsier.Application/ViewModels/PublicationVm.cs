@@ -12,6 +12,7 @@ namespace Newsier.Application.ViewModels
         public string Id { get; set; }
         public string Image { get; set; }
         public string Title { get; set; }
+        public string Value { get; set; }
         public long Views { get; set; }
         public string PublisherId { get; set; }
         public string Publisher { get; set; }
@@ -28,8 +29,9 @@ namespace Newsier.Application.ViewModels
             profile.CreateMap<Publication, PublicationVm>()
                 .ForMember(x => x.Publisher, opt => opt.MapFrom(x => $"{x.Publisher.Name} {x.Publisher.Surname}"))
                 .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
-                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy, hh:mm", dateTimeFormatInfo)))
-                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("dd MMMM, yyyy, hh:mm", dateTimeFormatInfo)))
+                .ForMember(x => x.Value, opt => opt.MapFrom(x => x.Value.Substring(0, 75) + "..."))
+                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
+                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
                 .ForMember(
                     x => x.Tags,
                     opt => opt.MapFrom(
