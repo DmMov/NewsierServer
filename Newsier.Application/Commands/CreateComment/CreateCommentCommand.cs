@@ -13,7 +13,6 @@ namespace Newsier.Application.Commands.CreateComment
         public string Value { get; set; }
         public string PublisherId { get; set; }
         public string PublicationId { get; set; }
-        public string ParentId { get; set; }
 
         public sealed class Handler : IRequestHandler<CreateCommentCommand, string>
         {
@@ -32,19 +31,11 @@ namespace Newsier.Application.Commands.CreateComment
                     Value = request.Value,
                     PublisherId = request.PublisherId,
                     PublicationId = request.PublicationId,
-                    ParentId = request.ParentId
                 };
                 
                 _context.Comments.Add(comment);
 
-                try
-                {
-                    await _context.SaveChangesAsync(cancellationToken);
-                }
-                catch (Exception)
-                {
-                    throw new BadRequestException("You provided invalid data that is why you can not create a comment");
-                }
+                await _context.SaveChangesAsync(cancellationToken);
 
                 return comment.Id;
             }

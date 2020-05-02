@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Base;
 using Newsier.Application.Interfaces;
 using Newsier.Application.ViewModels;
-using Newsier.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -13,46 +12,21 @@ using System.Threading.Tasks;
 
 namespace Newsier.Application.Queries.GetCommentsByPublication
 {
-    public sealed class GetCommentsByPublicationQuery : IRequest<List<CommentVm>>
+    public sealed class GetCommentsByPublicationQuery : IRequest<ICollection<CommentVm>>
     {
         public string PublicationId { get; set; }
 
-        public sealed class Handler : QueryHandlerBase, IRequestHandler<GetCommentsByPublicationQuery, List<CommentVm>>
+        public sealed class Handler : QueryHandlerBase, IRequestHandler<GetCommentsByPublicationQuery, ICollection<CommentVm>>
         {
             public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
 
-            public async Task<List<CommentVm>> Handle(GetCommentsByPublicationQuery request, CancellationToken cancellationToken)
+            public async Task<ICollection<CommentVm>> Handle(GetCommentsByPublicationQuery request, CancellationToken cancellationToken)
             {
-                List<CommentVm> comments = await _context.Comments
-                     .Where(comment => comment.PublicationId == request.PublicationId && comment.ParentId == null)
+                ICollection<CommentVm> comments = await _context.Comments
+                     .Where(comment => comment.PublicationId == request.PublicationId)
                      .OrderByDescending(comment => comment.CreatedAt)
                      .ProjectTo<CommentVm>(_mapper.ConfigurationProvider)
                      .ToListAsync();
-
-                comments = await StructureCommentsAsync(comments);
-
-                return comments;
-            }
-
-            private async Task<List<CommentVm>> StructureCommentsAsync(List<CommentVm> comments)
-            {
-                foreach (CommentVm comment in comments)
-                {
-                    List<CommentVm> childComments = await _context.Comments
-                        .Include(c => c.Comments)
-                        .Where(c => c.ParentId == comment.Id)
-                        .OrderByDescending(comment => comment.CreatedAt)
-                        .ProjectTo<CommentVm>(_mapper.ConfigurationProvider)
-                        .ToListAsync();
-
-                    if (childComments.Count != 0)
-                    {
-                        comment.Comments = childComments;
-
-                        foreach (CommentVm innerComment in comment.Comments)
-                            await StructureCommentsAsync(innerComment.Comments.ToList());
-                    }
-                }
 
                 return comments;
             }

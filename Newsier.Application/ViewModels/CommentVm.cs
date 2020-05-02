@@ -1,7 +1,6 @@
 ﻿using AutoMapper;
 using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
-using System.Collections.Generic;
 using System.Globalization;
 
 namespace Newsier.Application.ViewModels
@@ -16,7 +15,6 @@ namespace Newsier.Application.ViewModels
         public string ParentId { get; set; }
         public string CreatedAt { get; set; }
         public string LastModifiedAt { get; set; }
-        public ICollection<CommentVm> Comments { get; set; }
 
         public void Mapping(Profile profile)
         {

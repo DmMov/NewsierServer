@@ -155,8 +155,7 @@ namespace Newsier.Application.UnitTests.Common
                     Id = "test-comment-5",
                     Value = "value of the fifth comment",
                     PublisherId = "test-publisher-2",
-                    PublicationId = "test-publication-3",
-                    ParentId = "test-comment-1"
+                    PublicationId = "test-publication-3"
                 }
             );
 

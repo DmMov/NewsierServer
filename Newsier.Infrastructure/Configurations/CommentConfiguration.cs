@@ -19,10 +19,6 @@ namespace Newsier.Infrastructure.Configurations
             builder.HasOne(c => c.Publication)
                 .WithMany(publ => publ.Comments)
                 .OnDelete(DeleteBehavior.SetNull);
-
-            builder.HasOne(c => c.Parent)
-                .WithMany(c => c.Comments)
-                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

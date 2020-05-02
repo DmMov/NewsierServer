@@ -7,32 +7,18 @@
   },
   {
     "id": "comment-two",
-    "value": "дякую",
-    "publicationid": "publication-one",
-    "publisherid": "publisher-two",
-    "parentid": "comment-one"
-  },
-  {
-    "id": "comment-three",
     "value": "крута публікація",
     "publicationid": "publication-eight",
     "publisherid": "publisher-one"
   },
   {
-    "id": "comment-four",
-    "value": "дякую",
-    "publicationid": "publication-eight",
-    "publisherid": "publisher-two",
-    "parentid": "comment-three"
-  },
-  {
-    "id": "comment-five",
+    "id": "comment-three",
     "value": "крута публікація",
     "publicationid": "publication-fifteen",
     "publisherid": "publisher-one"
   },
   {
-    "id": "comment-six",
+    "id": "comment-four",
     "value": "дуже крута",
     "publicationid": "publication-fifteen",
     "publisherid": "publisher-one"
