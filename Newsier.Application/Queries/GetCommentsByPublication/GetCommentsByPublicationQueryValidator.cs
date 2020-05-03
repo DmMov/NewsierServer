@@ -17,6 +17,12 @@ namespace Newsier.Application.Queries.GetCommentsByPublication
                 .WithMessage("'PublicationId' is null or an empty string")
                 .MustAsync(_entitiesSearchService.ExistAsync<Publication>)
                 .WithMessage("The specified 'PublicationId' is invalid");
+
+            RuleFor(query => query.PublisherId)
+                .NotEmpty()
+                .WithMessage("'PublisherId' is null or an empty string")
+                .MustAsync(_entitiesSearchService.ExistAsync<Publisher>)
+                .WithMessage("The specified 'PublisherId' is invalid");
         }
     }
 }

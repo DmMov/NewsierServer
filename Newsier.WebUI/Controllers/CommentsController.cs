@@ -12,10 +12,19 @@ namespace Newsier.WebUI.Controllers
 {
     public sealed class CommentsController : BaseController
     {
+        [Authorize]
         [HttpGet("by-publication/{publicationId}")]
         public async Task<ActionResult<List<CommentVm>>> GetByPublication(string publicationId)
         {
-            return Ok(await Mediator.Send(new GetCommentsByPublicationQuery { PublicationId = publicationId }));
+            string publisherId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+
+            return Ok(await Mediator.Send(
+                new GetCommentsByPublicationQuery
+                {
+                    PublicationId = publicationId,
+                    PublisherId = publisherId
+                }
+            ));
         }
 
         [Authorize]

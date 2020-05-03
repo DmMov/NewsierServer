@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Base;
 using Newsier.Application.Interfaces;
 using Newsier.Application.ViewModels;
+using Newsier.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -15,6 +16,7 @@ namespace Newsier.Application.Queries.GetCommentsByPublication
     public sealed class GetCommentsByPublicationQuery : IRequest<ICollection<CommentVm>>
     {
         public string PublicationId { get; set; }
+        public string PublisherId { get; set; }
 
         public sealed class Handler : QueryHandlerBase, IRequestHandler<GetCommentsByPublicationQuery, ICollection<CommentVm>>
         {
@@ -27,6 +29,12 @@ namespace Newsier.Application.Queries.GetCommentsByPublication
                      .OrderByDescending(comment => comment.CreatedAt)
                      .ProjectTo<CommentVm>(_mapper.ConfigurationProvider)
                      .ToListAsync();
+
+                Publisher publisher = await _context.Publishers
+                    .SingleOrDefaultAsync(x => x.Id == request.PublisherId);
+
+                foreach (CommentVm comment in comments)
+                    comment.CanDelete = publisher.Id == comment.PublisherId || publisher.Role == "admin";
 
                 return comments;
             }
