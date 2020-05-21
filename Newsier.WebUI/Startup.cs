@@ -6,7 +6,7 @@ using Microsoft.Extensions.FileProviders;
 using Microsoft.IdentityModel.Tokens;
 using Newsier.Application;
 using Newsier.Infrastructure;
-using Newsier.WebUI.Middlewares;
+using Newsier.WebUI.Filters;
 using System.IO;
 using System.Text;
 
@@ -48,13 +48,12 @@ namespace Newsier.WebUI
                         .AllowAnyHeader()
                         .Build());
             });
-            services.AddControllers();
+            services.AddControllers(options => options.Filters.Add(new ApiExceptionFilter()));
         }
 
         public void Configure(IApplicationBuilder app)
         {
             app.UseCors("CorsPolicy");
-            app.UseCustomExceptionHandler();
             app.UseHttpsRedirection();
             app.UseStaticFiles(new StaticFileOptions
             {

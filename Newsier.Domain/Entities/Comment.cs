@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-
-namespace Newsier.Domain.Entities
+﻿namespace Newsier.Domain.Entities
 {
     public class Comment : BaseEntity
     {

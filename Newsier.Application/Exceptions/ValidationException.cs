@@ -7,24 +7,26 @@ namespace Newsier.Application.Exceptions
 {
     public class ValidationException : Exception
     {
-        public IDictionary<string, string[]> Failures { get; }
+        public IDictionary<string, string[]> Errors { get; }
 
-        public ValidationException() : base("One or more validation failures have occurred.")
+        public ValidationException()
+            : base("One or more validation failures have occurred.")
         {
-            Failures = new Dictionary<string, string[]>();
+            Errors = new Dictionary<string, string[]>();
         }
 
-        public ValidationException(IEnumerable<ValidationFailure> failures) : this()
+        public ValidationException(IEnumerable<ValidationFailure> failures)
+            : this()
         {
             IEnumerable<IGrouping<string, string>> failureGroups = failures
                 .GroupBy(e => e.PropertyName, e => e.ErrorMessage);
 
-            foreach (IGrouping<string, string> failureGroup in failureGroups)
+            foreach (var failureGroup in failureGroups)
             {
                 string propertyName = failureGroup.Key;
                 string[] propertyFailures = failureGroup.ToArray();
 
-                Failures.Add(propertyName, propertyFailures);
+                Errors.Add(propertyName, propertyFailures);
             }
         }
     }

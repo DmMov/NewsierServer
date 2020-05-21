@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace Newsier.Application.Behaviors
 {
-    public sealed class RequestPerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
+    public sealed class PerformanceBehaviour<TRequest, TResponse> : IPipelineBehavior<TRequest, TResponse>
     {
         private readonly Stopwatch _timer;
         private readonly ILogger<TRequest> _logger;
 
-        public RequestPerformanceBehaviour(ILogger<TRequest> logger)
+        public PerformanceBehaviour(ILogger<TRequest> logger)
         {
             _timer = new Stopwatch();
             _logger = logger;

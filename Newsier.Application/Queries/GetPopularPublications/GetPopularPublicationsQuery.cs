@@ -15,7 +15,7 @@ namespace Newsier.Application.Queries.GetPopularPublications
 {
     public sealed class GetPopularPublicationsQuery : IRequest<List<PublicationVm>>
     {
-        public ushort? Count { get; set; }
+        public short? Count { get; set; }
 
         public sealed class Handler : QueryHandlerBase, IRequestHandler<GetPopularPublicationsQuery, List<PublicationVm>>
         {
