@@ -32,14 +32,7 @@ namespace Newsier.Application.ViewModels
                 .ForMember(x => x.Value, opt => opt.MapFrom(x => x.Value.Substring(0, 75) + "..."))
                 .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
                 .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
-                .ForMember(
-                    x => x.Tags,
-                    opt => opt.MapFrom(
-                        x => x.TagsToPublications
-                            .Where(tp => tp.PublicationId == x.Id)
-                            .Select(tp => tp.Tag)
-                    )
-                );
+                .ForMember(x => x.Tags, opt => opt.MapFrom(x => x.TagsToPublications.Select(tp => tp.Tag)));
         }
     }
 }
