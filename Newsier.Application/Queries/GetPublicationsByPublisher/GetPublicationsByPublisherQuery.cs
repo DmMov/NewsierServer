@@ -16,7 +16,7 @@ namespace Newsier.Application.Queries.GetPublicationsByPublisher
     {
         public string PublisherId { get; set; }
 
-        public sealed class Handler : QueryHandlerBase, IRequestHandler<GetPublicationsByPublisherQuery, List<PublicationVm>>
+        public sealed class Handler : HandlerBase, IRequestHandler<GetPublicationsByPublisherQuery, List<PublicationVm>>
         {
             public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
 

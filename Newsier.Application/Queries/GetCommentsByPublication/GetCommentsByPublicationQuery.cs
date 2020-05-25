@@ -18,7 +18,7 @@ namespace Newsier.Application.Queries.GetCommentsByPublication
         public string PublicationId { get; set; }
         public string PublisherId { get; set; }
 
-        public sealed class Handler : QueryHandlerBase, IRequestHandler<GetCommentsByPublicationQuery, ICollection<CommentVm>>
+        public sealed class Handler : HandlerBase, IRequestHandler<GetCommentsByPublicationQuery, ICollection<CommentVm>>
         {
             public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
 

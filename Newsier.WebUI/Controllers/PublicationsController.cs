@@ -1,5 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newsier.Application.Commands.CreatePublication;
 using Newsier.Application.Queries.GetAllPublications;
 using Newsier.Application.Queries.GetPopularPublications;
 using Newsier.Application.Queries.GetPublicationById;
@@ -37,6 +39,15 @@ namespace Newsier.WebUI.Controllers
         public async Task<ActionResult<DetailedPublicationVm>> GetById(string id)
         {
             return Ok(await Mediator.Send(new GetPublicationByIdQuery { PublicationId = id }));
+        }
+
+        [Authorize]
+        [HttpPost]
+        public async Task<ActionResult> Create([FromForm] CreatePublicationCommand command)
+        {
+            string publisherId = User.FindFirstValue(ClaimTypes.NameIdentifier);
+            command.PublisherId = publisherId;
+            return Ok(await Mediator.Send(command));
         }
     }
 }

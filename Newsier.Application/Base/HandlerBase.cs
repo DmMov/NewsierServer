@@ -3,12 +3,12 @@ using Newsier.Application.Interfaces;
 
 namespace Newsier.Application.Base
 {
-    public class QueryHandlerBase
+    public class HandlerBase
     {
         protected readonly INewsierContext _context;
         protected readonly IMapper _mapper;
 
-        public QueryHandlerBase(INewsierContext context, IMapper mapper)
+        public HandlerBase(INewsierContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
