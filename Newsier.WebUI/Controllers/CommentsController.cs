@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace Newsier.WebUI.Controllers
 {
+    [Authorize]
     public sealed class CommentsController : BaseController
     {
-        [Authorize]
         [HttpGet("by-publication/{publicationId}")]
         public async Task<ActionResult<List<CommentVm>>> GetByPublication(string publicationId)
         {
@@ -27,7 +27,6 @@ namespace Newsier.WebUI.Controllers
             ));
         }
 
-        [Authorize]
         [HttpPost]
         public async Task<ActionResult> Create([FromBody] CreateCommentCommand command)
         {

@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newsier.Application.Commands.CreatePublication;
+using Newsier.Application.Commands.DeletePublication;
 using Newsier.Application.Queries.GetAllPublications;
 using Newsier.Application.Queries.GetPopularPublications;
 using Newsier.Application.Queries.GetPublicationById;
@@ -48,6 +49,15 @@ namespace Newsier.WebUI.Controllers
             string publisherId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             command.PublisherId = publisherId;
             return Ok(await Mediator.Send(command));
+        }
+
+        [Authorize]
+        [HttpDelete("{id}")]
+        public async Task<ActionResult<string>> Delete(string id)
+        {
+            await Mediator.Send(new DeletePublicationCommand { PublicationId = id });
+
+            return NoContent();
         }
     }
 }
