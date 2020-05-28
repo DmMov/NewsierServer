@@ -1,6 +1,4 @@
 ﻿using FluentValidation;
-using Newsier.Application.Interfaces;
-using Newsier.Domain.Entities;
 
 namespace Newsier.Application.Commands.DeleteComment
 {

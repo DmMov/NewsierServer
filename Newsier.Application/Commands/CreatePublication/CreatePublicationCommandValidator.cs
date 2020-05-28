@@ -1,9 +1,6 @@
 ﻿using FluentValidation;
 using Newsier.Application.Interfaces;
 using Newsier.Domain.Entities;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Newsier.Application.Commands.CreatePublication
 {

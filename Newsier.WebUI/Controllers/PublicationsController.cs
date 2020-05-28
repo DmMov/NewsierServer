@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newsier.Application.Commands.CreatePublication;
 using Newsier.Application.Commands.DeletePublication;
