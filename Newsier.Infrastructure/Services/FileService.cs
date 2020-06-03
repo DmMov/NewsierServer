@@ -1,0 +1,45 @@
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.Net.Http.Headers;
+using Newsier.Application.Exceptions;
+using Newsier.Application.Interfaces;
+using System;
+using System.IO;
+using System.Threading.Tasks;
+
+namespace Newsier.Infrastructure.Services
+{
+    public sealed class FileService : IFileService
+    {
+        public async Task<string> AddFileToDirectoryAsync(IFormFile file, string directory)
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string newPath = Path.Combine(currentDirectory, directory);
+
+            if(!Directory.Exists(newPath))
+                Directory.CreateDirectory(newPath);
+
+            string fileName = Guid.NewGuid().ToString() + ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim();
+            string fullPath = Path.Combine(newPath, fileName);
+
+            using(FileStream stream = new FileStream(fullPath, FileMode.Create))
+            {
+                await file.CopyToAsync(stream);
+            }
+
+            return fileName;
+        }
+
+        public async Task<bool> RemoveFileFromDirectoryAsync(string fileName, string directory)
+        {
+            string currentDirectory = Directory.GetCurrentDirectory();
+            string fullPath = Path.Combine(currentDirectory, directory, fileName);
+
+            if(File.Exists(fullPath))
+                File.Delete(fullPath);
+            else
+                throw new BadRequestException("Image deletion error");
+
+            return await Task.FromResult(true);
+        }
+    }
+}

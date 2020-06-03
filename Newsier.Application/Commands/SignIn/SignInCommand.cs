@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Exceptions;
 using Newsier.Application.Helpers;
 using Newsier.Application.Interfaces;
-using Newsier.Application.ViewModels;
 using Newsier.Domain.Entities;
 using System;
 using System.Collections.Generic;
@@ -13,12 +12,12 @@ using System.Threading.Tasks;
 
 namespace Newsier.Application.Commands.SignIn
 {
-    public sealed class SignInCommand : IRequest<SignInResponseVm>
+    public sealed class SignInCommand : IRequest<string>
     {
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public sealed class Handler : IRequestHandler<SignInCommand, SignInResponseVm>
+        public sealed class Handler : IRequestHandler<SignInCommand, string>
         {
             private readonly INewsierContext _context;
             private readonly ITokenService _tokenService;
@@ -29,7 +28,7 @@ namespace Newsier.Application.Commands.SignIn
                 _tokenService = tokenService;
             }
 
-            public async Task<SignInResponseVm> Handle(SignInCommand request, CancellationToken cancellationToken)
+            public async Task<string> Handle(SignInCommand request, CancellationToken cancellationToken)
             {
                 Publisher publisher = await _context.Publishers.
                     SingleOrDefaultAsync(x => x.Email.ToLower() == request.Email.ToLower());
@@ -50,12 +49,9 @@ namespace Newsier.Application.Commands.SignIn
                     new Claim(ClaimTypes.Role, publisher.Role)
                 };
 
-                SignInResponseVm vm = new SignInResponseVm
-                {
-                    Token = _tokenService.BuildToken(claims)
-                };
+                string token = _tokenService.BuildToken(claims);
 
-                return vm;
+                return token;
             }
         }
     }

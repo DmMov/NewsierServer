@@ -1,12 +1,11 @@
 ﻿
 using FluentValidation;
-using Newsier.Application.Interfaces;
 
 namespace Newsier.Application.Commands.SignIn
 {
     public sealed class SignInCommandValidator : AbstractValidator<SignInCommand>
     {
-        public SignInCommandValidator(IEntitiesSearchService entitiesSearchService)
+        public SignInCommandValidator()
         {
             RuleFor(x => x.Email)
                 .NotEmpty()

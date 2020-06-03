@@ -12,28 +12,17 @@ namespace Newsier.Infrastructure
         public static async Task SeedAsync(NewsierContext context)
         {
             if (!context.Publishers.Any())
-                context.Publishers.AddRange(
+                context.Publishers.Add(
                     new Publisher
                     {
-                        Id = "publisher-one",
+                        Id = "publisher1",
                         Name = "володимир",
                         Surname = "милисюк",
-                        Email = "volodymyr.admin@newsier.com",
+                        Email = "volodymyr@newsier.com",
                         Password = Convert.ToBase64String(new PasswordHash("admin").ToArray()),
                         Role = "admin",
-                        CreatedAt = DateTime.Now,
+                        CreatedAt = DateTime.UtcNow,
                         Image = "volodymyr.png"
-                    },
-                    new Publisher
-                    {
-                        Id = "publisher-two",
-                        Name = "любомир",
-                        Surname = "милисюк",
-                        Email = "liubomyr.publisher@newsier.com",
-                        Password = Convert.ToBase64String(new PasswordHash("publisher").ToArray()),
-                        Role = "publisher",
-                        CreatedAt = DateTime.Now,
-                        Image = "user.png"
                     }
                 );
 
@@ -48,9 +37,6 @@ namespace Newsier.Infrastructure
 
             if (!context.TagsToPublications.Any())
                 context.TagsToPublications.AddRange(await SeedHelper.SeedDataAsync<TagToPublication>("tags-to-publications.json"));
-
-            if (!context.Comments.Any())
-                context.Comments.AddRange(await SeedHelper.SeedDataAsync<Comment>("comments.json"));
 
             await context.SaveChangesAsync();
         }

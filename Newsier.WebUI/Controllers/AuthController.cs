@@ -1,24 +1,20 @@
-﻿using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Newsier.Application.Commands.SignIn;
-using Newsier.Application.Queries.GetPublisherById;
-using System.Security.Claims;
+using Newsier.Application.Commands.SignUp;
 using System.Threading.Tasks;
 
 namespace Newsier.WebUI.Controllers
 {
     public sealed class AuthController : BaseController
     {
-        [Authorize]
-        [HttpGet]
-        public async Task<ActionResult> CheckAuthentication()
+        [HttpPost("sign-in")]
+        public async Task<ActionResult<string>> SignIn(SignInCommand command)
         {
-            string publisherId = User.FindFirstValue(ClaimTypes.NameIdentifier);
-            return Ok(await Mediator.Send(new GetPublisherByIdQuery { PublisherId = publisherId }));
+            return Ok(await Mediator.Send(command));
         }
 
-        [HttpPost]
-        public async Task<ActionResult> SignIn([FromBody] SignInCommand command)
+        [HttpPost("sign-up")]
+        public async Task<ActionResult<string>> SignUp([FromForm] SignUpCommand command)
         {
             return Ok(await Mediator.Send(command));
         }

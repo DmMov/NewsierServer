@@ -2,14 +2,12 @@
 using MediatR;
 using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Net.Http.Headers;
 using Newsier.Application.Base;
 using Newsier.Application.Interfaces;
 using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
 using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -26,31 +24,22 @@ namespace Newsier.Application.Commands.CreatePublication
 
         public sealed class Handler: HandlerBase, IRequestHandler<CreatePublicationCommand, string>
         {
-            public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
+            private readonly IFileService _fileService;
+
+            public Handler(INewsierContext context, IMapper mapper, IFileService fileService) : base(context, mapper)
+            {
+                _fileService = fileService;
+            }
 
             public async Task<string> Handle(CreatePublicationCommand request, CancellationToken cancellationToken)
             {
-                string folderName = "Assets/Images";
-                string currentDirectory = Directory.GetCurrentDirectory();
-                string newPath = Path.Combine(currentDirectory, folderName);
-
-                if (!Directory.Exists(newPath))
-                {
-                    Directory.CreateDirectory(newPath);
-                }
-
-                string fileName = Guid.NewGuid().ToString() + ContentDispositionHeaderValue.Parse(request.File.ContentDisposition).FileName.Trim();
-                string fullPath = Path.Combine(newPath, fileName);
-                using (FileStream stream = new FileStream(fullPath, FileMode.Create))
-                {
-                    request.File.CopyTo(stream);
-                }
-
                 Publication publication = _mapper.Map<Publication>(request);
                 publication.Id = Guid.NewGuid().ToString();
-                publication.Image = fileName;
+                publication.Image = await _fileService.AddFileToDirectoryAsync(request.File, "Assets/Images");
 
-                if (request.Tags != null && request.Tags != string.Empty)
+                _context.Publications.Add(publication);
+
+                if(request.Tags != null && request.Tags != string.Empty)
                 {
                     string[] tagsArray = request.Tags.Split(",");
 
@@ -88,8 +77,6 @@ namespace Newsier.Application.Commands.CreatePublication
                         _context.TagsToPublications.Add(tagToPublication);
                     }
                 }
-
-                _context.Publications.Add(publication);
 
                 await _context.SaveChangesAsync(cancellationToken);
 

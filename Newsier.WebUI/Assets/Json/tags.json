@@ -1,54 +1,62 @@
 [
   {
-    "id": "tag-one",
-    "value": "2019"
-  },
-  {
-    "id": "tag-two",
-    "value": "tesla"
-  },
-  {
-    "id": "tag-three",
-    "value": "київ"
-  },
-  {
-    "id": "tag-four",
+    "id": "tag1",
     "value": "2020"
   },
   {
-    "id": "tag-five",
+    "id": "tag2",
     "value": "британія"
   },
   {
-    "id": "tag-six",
-    "value": "huawei"
-  },
-  {
-    "id": "tag-seven",
+    "id": "tag3",
     "value": "spaceX"
   },
   {
-    "id": "tag-eight",
+    "id": "tag4",
     "value": "кава"
   },
   {
-    "id": "tag-nine",
-    "value": "дія"
-  },
-  {
-    "id": "tag-ten",
+    "id": "tag5",
     "value": "ілон маск"
   },
   {
-    "id": "tag-eleven",
+    "id": "tag6",
     "value": "світ"
   },
   {
-    "id": "tag-twelwe",
+    "id": "tag7",
     "value": "wi-fi"
   },
   {
-    "id": "tag-thirteen",
+    "id": "tag8",
     "value": "free"
+  },
+  {
+    "id": "tag9",
+    "value": "2035"
+  },
+  {
+    "id": "tag10",
+    "value": "авто"
+  },
+  {
+    "id": "tag11",
+    "value": "топ"
+  },
+  {
+    "id": "tag12",
+    "value": "топ-10"
+  },
+  {
+    "id": "tag13",
+    "value": "гаджети"
+  },
+  {
+    "id": "tag14",
+    "value": "японія"
+  },
+  {
+    "id": "tag15",
+    "value": "туризм"
   }
 ]

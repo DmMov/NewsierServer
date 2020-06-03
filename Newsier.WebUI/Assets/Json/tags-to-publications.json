@@ -1,72 +1,77 @@
 [
   {
-    "id": "tag-to-publication-one",
-    "tagid": "tag-two",
-    "publicationid": "publication-one"
+    "id": "ttp1",
+    "tagid": "tag1",
+    "publicationid": "publication1"
   },
   {
-    "id": "tag-to-publication-two",
-    "tagid": "tag-four",
-    "publicationid": "publication-one"
+    "id": "ttp2",
+    "tagid": "tag9",
+    "publicationid": "publication1"
   },
   {
-    "id": "tag-to-publication-three",
-    "tagid": "tag-six",
-    "publicationid": "publication-eleven"
+    "id": "ttp3",
+    "tagid": "tag10",
+    "publicationid": "publication1"
   },
   {
-    "id": "tag-to-publication-four",
-    "tagid": "tag-eight",
-    "publicationid": "publication-fifteen"
+    "id": "ttp4",
+    "tagid": "tag1",
+    "publicationid": "publication2"
   },
   {
-    "id": "tag-to-publication-five",
-    "tagid": "tag-seven",
-    "publicationid": "publication-nine"
+    "id": "ttp5",
+    "tagid": "tag11",
+    "publicationid": "publication2"
   },
   {
-    "id": "tag-to-publication-six",
-    "tagid": "tag-nine",
-    "publicationid": "publication-two"
+    "id": "ttp6",
+    "tagid": "tag12",
+    "publicationid": "publication2"
   },
   {
-    "id": "tag-to-publication-seven",
-    "tagid": "tag-four",
-    "publicationid": "publication-two"
+    "id": "ttp7",
+    "tagid": "tag13",
+    "publicationid": "publication2"
   },
   {
-    "id": "tag-to-publication-eight",
-    "tagid": "tag-three",
-    "publicationid": "publication-twelve"
+    "id": "ttp8",
+    "tagid": "tag5",
+    "publicationid": "publication3"
   },
   {
-    "id": "tag-to-publication-nine",
-    "tagid": "tag-one",
-    "publicationid": "publication-twelve"
+    "id": "ttp9",
+    "tagid": "tag6",
+    "publicationid": "publication3"
   },
   {
-    "id": "tag-to-publication-ten",
-    "tagid": "tag-five",
-    "publicationid": "publication-three"
+    "id": "ttp10",
+    "tagid": "tag7",
+    "publicationid": "publication3"
   },
   {
-    "id": "tag-to-publication-eleven",
-    "tagid": "tag-ten",
-    "publicationid": "publication-eight"
+    "id": "ttp11",
+    "tagid": "tag8",
+    "publicationid": "publication3"
   },
   {
-    "id": "tag-to-publication-twelwe",
-    "tagid": "tag-eleven",
-    "publicationid": "publication-eight"
+    "id": "ttp12",
+    "tagid": "tag3",
+    "publicationid": "publication4"
   },
   {
-    "id": "tag-to-publication-thirteen",
-    "tagid": "tag-twelwe",
-    "publicationid": "publication-eight"
+    "id": "ttp13",
+    "tagid": "tag4",
+    "publicationid": "publication5"
   },
   {
-    "id": "tag-to-publication-fourteen",
-    "tagid": "tag-thirteen",
-    "publicationid": "publication-eight"
+    "id": "ttp14",
+    "tagid": "tag14",
+    "publicationid": "publication6"
+  },
+  {
+    "id": "ttp15",
+    "tagid": "tag15",
+    "publicationid": "publication6"
   }
 ]

@@ -15,10 +15,12 @@ namespace Newsier.Application.Commands.DeletePublication
         public sealed class Handler : IRequestHandler<DeletePublicationCommand, string>
         {
             private readonly INewsierContext _context;
+            private readonly IFileService _fileService;
 
-            public Handler(INewsierContext context)
+            public Handler(INewsierContext context, IFileService fileService)
             {
                 _context = context;
+                _fileService = fileService;
             }
 
             public async Task<string> Handle(DeletePublicationCommand request, CancellationToken cancellationToken)
@@ -30,6 +32,12 @@ namespace Newsier.Application.Commands.DeletePublication
                     throw new NotFoundException(nameof(Publication), request.PublicationId);
 
                 _context.TagsToPublications.RemoveRange(publication.TagsToPublications);
+
+                if(publication.Comments.Count != 0)
+                    _context.Comments.RemoveRange(publication.Comments);
+
+                if(publication.Image != "default-publication.png")
+                    await _fileService.RemoveFileFromDirectoryAsync(publication.Image, "Assets/Images");
 
                 _context.Publications.Remove(publication);
 
