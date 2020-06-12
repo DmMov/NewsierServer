@@ -31,17 +31,17 @@ namespace Newsier.Application.Commands.SignIn
             public async Task<string> Handle(SignInCommand request, CancellationToken cancellationToken)
             {
                 Publisher publisher = await _context.Publishers.
-                    SingleOrDefaultAsync(x => x.Email.ToLower() == request.Email.ToLower());
+                    FirstOrDefaultAsync(x => x.Email.ToLower() == request.Email.ToLower());
 
                 if (publisher == null)
-                    throw new BadRequestException("incorect email or password");
+                    throw new BadRequestException("email or password incorrect.");
 
                 byte[] hashBytes = Convert.FromBase64String(publisher.Password);
 
                 PasswordHash hash = new PasswordHash(hashBytes);
 
                 if (!hash.Verify(request.Password))
-                    throw new BadRequestException("incorect email or password");
+                    throw new BadRequestException("email or password incorrect.");
 
                 ICollection<Claim> claims = new List<Claim>
                 {

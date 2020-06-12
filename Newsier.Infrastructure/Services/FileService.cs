@@ -3,6 +3,7 @@ using Microsoft.Net.Http.Headers;
 using Newsier.Application.Exceptions;
 using Newsier.Application.Interfaces;
 using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
@@ -37,7 +38,7 @@ namespace Newsier.Infrastructure.Services
             if(File.Exists(fullPath))
                 File.Delete(fullPath);
             else
-                throw new BadRequestException("Image deletion error");
+                throw new BadRequestException($"error while deleting the file {fileName} from the {directory} directory.");
 
             return await Task.FromResult(true);
         }

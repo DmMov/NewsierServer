@@ -1,7 +1,9 @@
 ﻿using AutoMapper;
 using MediatR;
 using Microsoft.AspNetCore.Http;
+using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Base;
+using Newsier.Application.Exceptions;
 using Newsier.Application.Helpers;
 using Newsier.Application.Interfaces;
 using Newsier.Application.Mappings;
@@ -41,6 +43,9 @@ namespace Newsier.Application.Commands.SignUp
 
             public async Task<string> Handle(SignUpCommand request, CancellationToken cancellationToken)
             {
+                if (await _context.Publishers.AnyAsync(x => x.Email == request.Email))
+                    throw new BadRequestException("publisher with this email address already exists");
+
                 Publisher publisher = _mapper.Map<Publisher>(request);
                 publisher.Id = Guid.NewGuid().ToString();
 
