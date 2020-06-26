@@ -1,77 +1,32 @@
 [
   {
-    "id": "ttp1",
-    "tagid": "tag1",
-    "publicationid": "publication1"
+    "id": "ttp-1",
+    "tagid": "t-1",
+    "publicationid": "p-1"
   },
   {
-    "id": "ttp2",
-    "tagid": "tag9",
-    "publicationid": "publication1"
+    "id": "ttp-2",
+    "tagid": "t-2",
+    "publicationid": "p-1"
   },
   {
-    "id": "ttp3",
-    "tagid": "tag10",
-    "publicationid": "publication1"
+    "id": "ttp-3",
+    "tagid": "t-3",
+    "publicationid": "p-1"
   },
   {
-    "id": "ttp4",
-    "tagid": "tag1",
-    "publicationid": "publication2"
+    "id": "ttp-4",
+    "tagid": "t-4",
+    "publicationid": "p-3"
   },
   {
-    "id": "ttp5",
-    "tagid": "tag11",
-    "publicationid": "publication2"
+    "id": "ttp-5",
+    "tagid": "t-5",
+    "publicationid": "p-3"
   },
   {
-    "id": "ttp6",
-    "tagid": "tag12",
-    "publicationid": "publication2"
-  },
-  {
-    "id": "ttp7",
-    "tagid": "tag13",
-    "publicationid": "publication2"
-  },
-  {
-    "id": "ttp8",
-    "tagid": "tag5",
-    "publicationid": "publication3"
-  },
-  {
-    "id": "ttp9",
-    "tagid": "tag6",
-    "publicationid": "publication3"
-  },
-  {
-    "id": "ttp10",
-    "tagid": "tag7",
-    "publicationid": "publication3"
-  },
-  {
-    "id": "ttp11",
-    "tagid": "tag8",
-    "publicationid": "publication3"
-  },
-  {
-    "id": "ttp12",
-    "tagid": "tag3",
-    "publicationid": "publication4"
-  },
-  {
-    "id": "ttp13",
-    "tagid": "tag4",
-    "publicationid": "publication5"
-  },
-  {
-    "id": "ttp14",
-    "tagid": "tag14",
-    "publicationid": "publication6"
-  },
-  {
-    "id": "ttp15",
-    "tagid": "tag15",
-    "publicationid": "publication6"
+    "id": "ttp-6",
+    "tagid": "t-6",
+    "publicationid": "p-4"
   }
 ]

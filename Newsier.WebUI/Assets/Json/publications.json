@@ -1,74 +1,38 @@
 [
   {
-    "id": "publication1",
-    "title": "Велика Британія заборонила продаж бензинових авто з 2035 року",
-    "value": "У Великій Британії з 2035 року повністю припинять продаж бензинових, дизельних та гібридних авто. Раніше це планували зробити у 2040 році, але виявилося, що у королівстві не встигнуть таким чином скоротити шкідливі викиди в атмосферу майже до нуля. Про це пише Reuters. Британський уряд може заборонить продаж бензинових авто раніше, якщо це буде можливим, заявив прем’єр-міністр Борис Джонсон. «Ми повинні боротись з нашими викидами СО2 як країна, як суспільство, як планета, як вид, ми повинні діяти зараз», – зазначив Джонсон. Нагадаємо, в рамках проєкту міжнародної технічної допомоги «Bike AcceNT: мережева співпраця для доступності велосипедів» у Івано-Франківській області розпочали роботу над створенням транспортної велосипедної мережі",
-    "categoryId": "category1",
-    "publisherId": "publisher1",
-    "image": "london.jpg",
+    "id": "p-1",
+    "title": "Apple will pay up to $500 million to settle iPhone lawsuit",
+    "value": "IPhone owners could get $25 from Apple after the company agreed to pay up to $500 million to settle claims over intentionally slowing down older phones to preserve older batteries. Apple and lawyers representing iPhone consumers agreed to a deal stemming from Apple's 2017 admission that it was slowing down phone performance in older models to avoid unexpected shutdowns related to battery fatigue. That admission led to Apple offering discounted battery replacements at $29, but many people claimed they had already spent hundreds of dollars to buy new phones because Apple didn't reveal the cause of the problem. If they had known they could just buy new batteries, they might not have bought new phones, some consumers in the case said.",
+    "categoryId": "c-1",
+    "publisherId": "pr-1",
+    "image": "apple500.jpg",
     "views": 14
   },
   {
-    "id": "publication2",
-    "title": "ТОП-10 найуспішніших гаджетів останнього десятиліття за версією Time",
-    "value": "Журнал Time, який розмістив Президента Володимира Зеленського на новій обкладинці, озвучив на своєму сайті список 10 найбільш вдалих гаджетів останнього десятиліття, передає «Страна». Перше місце зайняв iPad від Apple - планшет, який похитнув необхідність ноутбуків на ринку технологій в 2010 році.    На другому місці – електрокар Tesla Model S, який був представлений в 2012 році Илоном Маском.    Також увійшов до списку мініатюрний комп'ютер Raspberry Pi (2012), Google Chromecast (2013), безпілотник DJI Phantom (2013) і колонка Amazon Echo (2014).    На восьмому і дев'ятому місцях Apple Watch, представлені в 2015 році, і навушники Apple AirPods, які побачили світ у 2016 році відповідно.    На дев'ятому і десятому місцях Time додав у свій рейтинг ігрову приставку Nintendo Switch (2017) і адаптивний контролер для ігрової консолі Xbox (2018).",
-    "categoryId": "category2",
-    "publisherId": "publisher1",
-    "image": "top-10.jpg",
+    "id": "p-2",
+    "title": "Ring to tighten privacy amid concerns it shares customer data with Facebook and Google",
+    "value": "Ring, the Amazon-owned maker of smart-home doorbells and web-enabled security cameras, is changing its privacy settings two weeks after a study showed the company shares customers' personal information with Facebook, Google and other parties without users' consent.The change will let Ring users block the company from sharing most, but not all, of their data. A company spokesperson said people will be able to opt out of those sharing agreements \"where applicable.\" The spokesperson declined to clarify what \"where applicable\" might mean.",
+    "categoryId": "c-1",
+    "publisherId": "pr-1",
+    "image": "ring.jpg",
     "views": 17
   },
   {
-    "id": "publication3",
-    "title": "Ілон Маск запропонував зробити Wi-Fi безкоштовним для всього світу",
-    "value": "Американський підприємець, винахідник і інвестор Ілон Маск по праву вважається генієм і прекрасним бізнесменом. Він заснував такі знамениті компанії як X.com, PayPal, SpaceX, Tesla та інші. Не забуває Маск і допомоги іншим. Він робить благодійні пожертвування, а також є головою благодійного фонду «Musk Foundation». Хоча сам Ілон Маск і його діяльність не раз піддавалися критиці, він продовжує рухатися вперед і дивувати світ новими ідеями. Остання його ідея - створення супутникового Wi-Fi, яким безкоштовно могли б користуватися люди з усього світу. Натхненником Маска на таку пропозицію став Нікола Тесла, він першим задумався про пошук способу для забезпечення безперебійної енергії в космосі. Але ця задумка так і залишилася нереалізованою. Проект Маска передбачає відправку 4425 супутників в космос, що обійдеться в 10 мільярдів $. Розмір супутників становитиме 4х1,8х1,2 м3. Ілон Маск пропонує відправити їх все відразу, не проводячи тестування.",
-    "categoryId": "category1",
-    "publisherId": "publisher1",
-    "image": "free-wi-fi.jpg",
+    "id": "p-3",
+    "title": "Elon Musk says he's restarted production at Tesla plant in California, disregarding stay-at-home order",
+    "value": "Telsa CEO Elon Musk continued to defy California and Alameda County authorities by restarting production at the company's Fremont assembly plant Monday, saying he was ready to be arrested himself if necessary, CBS San Francisco reported. The announcement came days after Musk filed a lawsuit against the county to reopen the factory, which is Tesla's only vehicle assembly plant in the U.S. Shift workers were seen streaming in and out of the sprawling plant in the pre-dawn hours, filling up the employee parking lot. The company reportedly has deployed additional PPE masks and taken other measures similar to those used to reopen the automaker's plant in Shanghai, China. Verve, quoting two unnamed workers, said production had actually restarted on a limited basis over the weekend and around 200 Model Y and Model 3 vehicles had rolled off the assembly line.",
+    "categoryId": "c-1",
+    "publisherId": "pr-1",
+    "image": "elon-musk.jpg",
     "views": 19
   },
   {
-    "id": "publication4",
-    "title": "SpaceX запланувала на травень свій перший політ з екіпажем",
-    "value": "Компанія Ілона Маска SpaceX планує в травні виконати перший політ з екіпажем. SpaceX планує доставити астронавтів NASA Боба Бенці і Дага Херлі на Міжнародну космічну станцію. Космічний корабель SpaceX Draw Dragon з екіпажем повинні доставити на МКС ракетою Falcon 9. Поки NASA і SpaceX планують виконати запуск не раніше середини-кінця травня, однак якщо поточні обмеження, пов'язані з коронавірусів, залишаться в силі протягом наступних декількох місяців, можливо, запуск доведеться перенести. Перший в історії пробний запуск Crew Dragon відбувся 2 березня 2019 року з космодрому космічного центру імені Кеннеді у Флориді. На борту корабля перебував манекен на прізвисько Ріплі. 3 березня Crew Dragon успішно пристикувався до МКС.",
-    "categoryId": "category1",
-    "publisherId": "publisher1",
+    "id": "p-4",
+    "title": "SpaceX Crew Dragon abort system a major boost for crew safety",
+    "value": "When SpaceX's Crew Dragon takes off atop a Falcon 9 rocket, its two-man crew will enjoy a level of safety space shuttle astronauts could only dream about: an abort system designed to detect an impending booster malfunction and automatically propel the capsule to safety at any point from the pad to orbit. But that improved safety margin comes at a cost. While a major booster malfunction during the climb to space is unlikely, NASA and SpaceX must be prepared for the possibility of an abort and an emergency splashdown anywhere along a trajectory stretching from Cape Canaveral to Newfoundland and across the North Atlantic Ocean toward Ireland.",
+    "categoryId": "c-2",
+    "publisherId": "pr-1",
     "image": "spaceX.jpg",
     "views": 26
-  },
-  {
-    "id": "publication5",
-    "title": "The Atlantic: Як кава стала улюбленим наркотиком капіталізму, витіснивши алкоголь",
-    "value": "Тонізуючий напій, який без жодної калорії робив працівників більш енергійними й продуктивними, став справжнім відкриттям для бізнесу на початку минулого століття. Чотири століття тому тропічний чагарник з блискучим зеленим листям і червоними ягодами під назвою Coffea arabica був фактично невідомим за межами арабського світу й кутка Ефіопії, де його в IX столітті випадково відкрив пастух. Як стверджує легенда, чоловік помітив, що його кози стають жвавими й не сплять цілу ніч, наївшись цих ягід. Кава завдячує своїм глобальним підйомом випадковому еволюційному інциденту. Хімічна сполука, яку рослина виробляє для захисту від комах, як виявилося, змінює людську свідомість в такий спосіб, який ми вважаємо бажаним. Вона робить нас більш енергійними й працездатними. Фактично, ми стаємо кращими робітниками. Цей хімікат, звісно ж, це кофеїн, який тепер став найпопулярнішим у світі психоактивним наркотиком.",
-    "categoryId": "category2",
-    "publisherId": "publisher1",
-    "image": "coffee.jpg",
-    "views": 28
-  },
-  {
-    "id": "publication6",
-    "title": "Японія буде платити туристам за відвідування країни.",
-    "value": "На програму Японія планує виділити 12,5 мільярда доларів. Уряд Японії планує ввести спеціальні ваучери для туристів на суму 185 доларів (20 тисяч ієн) в день. Таким чином влада хоче допомогти туристичній галузі, яка постраждала через епідемію коронавірусу. Про це повідомляє Kxan36news. Зазначають, що такі субсидії допоможуть мандрівникам покрити до половини добових витрат. Чеки будуть приймати в кафе, ресторанах і магазинах. Витрати на переліт чеки не покриватимуть. Загалом на програму планують виділити 1,35 трильйона ієн (12,5 мільярда доларів). Очікується, що ініціатива почне діяти в кінці липня. Щоб отримати субсидії, потрібно забронювати готель (це стосується і традиційних готелів рьокан) безпосередньо або за допомогою японських туристичних агентств.",
-    "categoryId": "category2",
-    "publisherId": "publisher1",
-    "image": "japan.jpg",
-    "views": 94
-  },
-  {
-    "id": "publication7",
-    "title": "Вчені знайшли найбільшу вулканічну зону на Землі",
-    "value": "Давня вулканічна зона сягала розміру більше двох тисяч кілометрів у діаметрі. Рух тектонічних плит став причиною її руйнування. Під територією Новою Зеландією геологи виявили частину гігантської вулканічної зони, яка вважається найбільшою на Землі. Про це повідомляє журнал Science Advances. Вчені знайшли сліди гігантського міхура магми - суперплюма. Фахівці аналізували швидкість проходження сейсмічних хвиль від землетрусів і вибухів. Вони виявили, що під час проходження через плато Хікурангі біля Нової Зеландії, хвилі помітно прискорюються. Вони рухаються зі швидкістю дев'ять кілометрів на секунду. При цьому прискорення помітне також для вертикальних хвиль.",
-    "categoryId": "category2",
-    "publisherId": "publisher1",
-    "image": "volcano.jpg",
-    "views": 0
-  },
-  {
-    "id": "publication8",
-    "title": "Вчені з’ясували, де на Землі найчистіше повітря",
-    "value": "Південний океан є одним з небагатьох місць на Землі, на яке не вплинула діяльність людини. Група вчених із Державного університету Колорадо визначила атмосферний регіон на Землі, на який не впливала діяльність людини. Про це йдеться в дослідженні, результати якого опубліковані в журналі Proceedings of the National Academy of Sciences. «Ми з’ясували, що на повітря прикордонного шару атмосфери, який живить нижні хмари над Південним океаном (найменування сукупності південних частин Тихого, Атлантичного й Індійського океанів, що оточують Антарктиду) ніяк не вплинула діяльність людей. Воно чисте від частинок аерозолів», - йдеться в анотації до дослідження. Аби це з’ясувати, команда вчених використовувала бактерії як індикатор для визначення ключових властивостей нижньої атмосфери. Аерозолі, які керують властивостями хмар над Південним океаном, тісно пов’язані з біологічними процесами у воді. Дослідження показало, що Антарктида ізольована від поширення мікроорганізмів і відкладання поживних речовин з південних континентів. Загалом це демонструє, що Південний океан є одним з небагатьох місць на Землі, на яке не вплинула діяльність людини. Зазначається, що саме цю частину планети для дослідження вчені обрали, бо підозрювали, що вона забруднена найменше.",
-    "categoryId": "category2",
-    "publisherId": "publisher1",
-    "image": "air.jpg",
-    "views": 0
   }
 ]

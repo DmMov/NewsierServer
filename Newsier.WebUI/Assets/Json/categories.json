@@ -1,14 +1,14 @@
 [
   {
-    "id": "category1",
-    "name": "Технології"
+    "id": "c-1",
+    "name": "technology"
   },
   {
-    "id": "category2",
-    "name": "Наука"
+    "id": "c-2",
+    "name": "science"
   },
   {
-    "id": "category3",
-    "name": "Економіка"
+    "id": "c-3",
+    "name": "health"
   }
 ]

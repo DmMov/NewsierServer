@@ -15,14 +15,14 @@ namespace Newsier.Infrastructure
                 context.Publishers.Add(
                     new Publisher
                     {
-                        Id = "publisher1",
-                        Name = "володимир",
-                        Surname = "милисюк",
-                        Email = "volodymyr@newsier.com",
-                        Password = Convert.ToBase64String(new PasswordHash("admin").ToArray()),
+                        Id = "pr-1",
+                        Name = "dmitriy",
+                        Surname = "movchaniuk",
+                        Email = "dmitriy@newsier.com",
+                        Password = Convert.ToBase64String(new PasswordHash("dmitriyAdmin").ToArray()),
                         Role = "admin",
                         CreatedAt = DateTime.UtcNow,
-                        Image = "volodymyr.png"
+                        Image = "dmitriy.jpg"
                     }
                 );
 

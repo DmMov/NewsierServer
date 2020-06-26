@@ -19,5 +19,9 @@
     <ProjectReference Include="..\Newsier.Infrastructure\Newsier.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Assets\Images\" />
+  </ItemGroup>
+
 
 </Project>
