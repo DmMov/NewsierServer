@@ -29,9 +29,9 @@ namespace Newsier.Application.UnitTests.Queries.GetAllPublications
             GetAllPublicationsQuery query = new GetAllPublicationsQuery();
             GetAllPublicationsQuery.Handler handler = new GetAllPublicationsQuery.Handler(_context, _mapper);
 
-            List<PublicationVm> result = await handler.Handle(query, CancellationToken.None);
+            List<PublicationItemVm> result = await handler.Handle(query, CancellationToken.None);
 
-            result.ShouldBeOfType<List<PublicationVm>>();
+            result.ShouldBeOfType<List<PublicationItemVm>>();
             result.ShouldNotBeNull();
             result.Count.ShouldBe(5);
         }

@@ -12,17 +12,17 @@ using System.Threading.Tasks;
 
 namespace Newsier.Application.Queries.GetAllPublications
 {
-    public sealed class GetAllPublicationsQuery : IRequest<List<PublicationVm>>
+    public sealed class GetAllPublicationsQuery : IRequest<List<PublicationItemVm>>
     {
-        public sealed class Handler : HandlerBase, IRequestHandler<GetAllPublicationsQuery, List<PublicationVm>>
+        public sealed class Handler : HandlerBase, IRequestHandler<GetAllPublicationsQuery, List<PublicationItemVm>>
         {
             public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
 
-            public async Task<List<PublicationVm>> Handle(GetAllPublicationsQuery request, CancellationToken cancellationToken)
+            public async Task<List<PublicationItemVm>> Handle(GetAllPublicationsQuery request, CancellationToken cancellationToken)
             {
-                List<PublicationVm> publications = await _context.Publications
+                List<PublicationItemVm> publications = await _context.Publications
                     .OrderByDescending(x => x.CreatedAt)
-                    .ProjectTo<PublicationVm>(_mapper.ConfigurationProvider)
+                    .ProjectTo<PublicationItemVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
                 return publications;

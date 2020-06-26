@@ -16,27 +16,27 @@ namespace Newsier.WebUI.Controllers
     public sealed class PublicationsController : BaseController
     {
         [HttpGet]
-        public async Task<ActionResult<List<PublicationVm>>> GetAll()
+        public async Task<ActionResult<List<PublicationItemVm>>> GetAll()
         {
             return Ok(await Mediator.Send(new GetAllPublicationsQuery()));
         }
 
         [HttpGet("popular")]
-        public async Task<ActionResult<List<PublicationVm>>> GetPupular(short? count)
+        public async Task<ActionResult<List<PublicationItemVm>>> GetPupular(short? count)
         {
             return Ok(await Mediator.Send(new GetPopularPublicationsQuery { Count = count }));
         }
 
         [Authorize]
         [HttpGet("by-publisher")]
-        public async Task<ActionResult<List<PublicationVm>>> GetByPublisher()
+        public async Task<ActionResult<List<PublicationItemVm>>> GetByPublisher()
         {
             string publisherId = User.FindFirstValue(ClaimTypes.NameIdentifier);
             return Ok(await Mediator.Send(new GetPublicationsByPublisherQuery { PublisherId = publisherId }));
         }
 
         [HttpGet("{id}")]
-        public async Task<ActionResult<DetailedPublicationVm>> GetById(string id)
+        public async Task<ActionResult<PublicationVm>> GetById(string id)
         {
             return Ok(await Mediator.Send(new GetPublicationByIdQuery { PublicationId = id }));
         }

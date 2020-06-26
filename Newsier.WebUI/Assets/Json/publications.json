@@ -51,7 +51,7 @@
     "categoryId": "category2",
     "publisherId": "publisher1",
     "image": "japan.jpg",
-    "views": 34
+    "views": 94
   },
   {
     "id": "publication7",
@@ -60,7 +60,7 @@
     "categoryId": "category2",
     "publisherId": "publisher1",
     "image": "volcano.jpg",
-    "views": 11
+    "views": 0
   },
   {
     "id": "publication8",
@@ -69,6 +69,6 @@
     "categoryId": "category2",
     "publisherId": "publisher1",
     "image": "air.jpg",
-    "views": 8
+    "views": 0
   }
 ]

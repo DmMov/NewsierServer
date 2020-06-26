@@ -11,18 +11,18 @@ using System.Threading.Tasks;
 
 namespace Newsier.Application.Queries.GetPublicationById
 {
-    public sealed class GetPublicationByIdQuery : IRequest<DetailedPublicationVm>
+    public sealed class GetPublicationByIdQuery : IRequest<PublicationVm>
     {
         public string PublicationId { get; set; }
 
-        public sealed class Handler : HandlerBase, IRequestHandler<GetPublicationByIdQuery, DetailedPublicationVm>
+        public sealed class Handler : HandlerBase, IRequestHandler<GetPublicationByIdQuery, PublicationVm>
         {
             public Handler(INewsierContext context, IMapper mapper) : base(context, mapper) { }
 
-            public async Task<DetailedPublicationVm> Handle(GetPublicationByIdQuery request, CancellationToken cancellationToken)
+            public async Task<PublicationVm> Handle(GetPublicationByIdQuery request, CancellationToken cancellationToken)
             {
-                DetailedPublicationVm publicationVm = await _context.Publications
-                    .ProjectTo<DetailedPublicationVm>(_mapper.ConfigurationProvider)
+                PublicationVm publicationVm = await _context.Publications
+                    .ProjectTo<PublicationVm>(_mapper.ConfigurationProvider)
                     .SingleOrDefaultAsync(publication => publication.Id == request.PublicationId);
 
                 Publication publication = await _context.Publications

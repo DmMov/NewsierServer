@@ -15,11 +15,12 @@ namespace Newsier.Application.ViewModels
         public string Value { get; set; }
         public long Views { get; set; }
         public string PublisherId { get; set; }
+        public string PublisherImage { get; set; }
         public string Publisher { get; set; }
         public string CategoryId { get; set; }
         public string Category { get; set; }
-        public string CreatedAt { get; set; }
-        public string LastModifiedAt { get; set; }
+        public string CreatedAtDate { get; set; }
+        public string CreatedAtTime { get; set; }
         public ICollection<TagVm> Tags { get; set; }
 
         public void Mapping(Profile profile)
@@ -27,11 +28,11 @@ namespace Newsier.Application.ViewModels
             DateTimeFormatInfo dateTimeFormatInfo = CultureInfo.GetCultureInfo("uk-UA").DateTimeFormat;
 
             profile.CreateMap<Publication, PublicationVm>()
+                .ForMember(x => x.PublisherImage, opt => opt.MapFrom(x => x.Publisher.Image))
                 .ForMember(x => x.Publisher, opt => opt.MapFrom(x => $"{x.Publisher.Name} {x.Publisher.Surname}"))
                 .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
-                .ForMember(x => x.Value, opt => opt.MapFrom(x => x.Value.Substring(0, 75) + "..."))
-                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
-                .ForMember(x => x.LastModifiedAt, opt => opt.MapFrom(x => x.LastModifiedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
+                .ForMember(x => x.CreatedAtDate, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
+                .ForMember(x => x.CreatedAtTime, opt => opt.MapFrom(x => x.CreatedAt.ToString("hh:mm:ss", dateTimeFormatInfo)))
                 .ForMember(x => x.Tags, opt => opt.MapFrom(x => x.TagsToPublications.Select(tp => tp.Tag)));
         }
     }
