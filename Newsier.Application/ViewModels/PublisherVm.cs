@@ -1,7 +1,7 @@
 ﻿using AutoMapper;
 using Newsier.Application.Mappings;
 using Newsier.Domain.Entities;
-using System.Globalization;
+using System;
 
 namespace Newsier.Application.ViewModels
 {
@@ -19,10 +19,8 @@ namespace Newsier.Application.ViewModels
 
         public void Mapping(Profile profile)
         {
-            DateTimeFormatInfo dateTimeFormatInfo = CultureInfo.GetCultureInfo("uk-UA").DateTimeFormat;
-
             profile.CreateMap<Publisher, PublisherVm>()
-                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => x.CreatedAt.ToString("dd MMMM, yyyy", dateTimeFormatInfo)))
+                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => $"{x.CreatedAt:MMMM dd} {(x.CreatedAt.Year == DateTime.UtcNow.Year ? "" : $"{x.CreatedAt:, yyyy}")}"))
                 .ForMember(x => x.Publications, opt => opt.MapFrom(x => (uint)x.Publications.Count))
                 .ForMember(x => x.Comments, opt => opt.MapFrom(x => (uint)x.Comments.Count));
         }
