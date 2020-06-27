@@ -28,7 +28,7 @@ namespace Newsier.Application.ViewModels
                 .ForMember(x => x.Publisher, opt => opt.MapFrom(x => $"{x.Publisher.Name} {x.Publisher.Surname}"))
                 .ForMember(x => x.Category, opt => opt.MapFrom(x => x.Category.Name))
                 .ForMember(x => x.Value, opt => opt.MapFrom(x => x.Value.Substring(0, 75) + "..."))
-                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => $"{x.CreatedAt:MMMM dd} {(x.CreatedAt.Year == DateTime.UtcNow.Year ? "" : $"{x.CreatedAt:, yyyy}")}"))
+                .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x => $"{x.CreatedAt:MMMM dd}{(x.CreatedAt.Year == DateTime.UtcNow.Year ? "" : $"{x.CreatedAt:, yyyy}")}"))
                 .ForMember(x => x.Tags, opt => opt.MapFrom(x => x.TagsToPublications.Select(tp => tp.Tag)));
         }
     }

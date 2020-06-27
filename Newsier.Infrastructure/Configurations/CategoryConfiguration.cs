@@ -8,7 +8,7 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.Property(c => c.Name)
+            builder.Property(x => x.Name)
                 .HasMaxLength(32)
                 .IsRequired();
         }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Newsier.Infrastructure.Helpers
 {
-    public static class SeedHelper
+    public sealed class SeedHelper
     {
-        public static async Task<List<TEntity>> SeedDataAsync<TEntity>(string fileName)
+        public async Task<List<TEntity>> SeedDataAsync<TEntity>(string fileName)
         {
             string currentDirectory = Directory.GetCurrentDirectory();
             string path = "Assets/Json";

@@ -13,26 +13,27 @@ namespace Newsier.WebUI
     {
         public async static Task Main(string[] args)
         {
-            var host = CreateHostBuilder(args).Build();
+            IHost host = CreateHostBuilder(args).Build();
+            NewsierContextSeed contextSeed = new NewsierContextSeed();
 
-            using (var scope = host.Services.CreateScope())
+            using (IServiceScope scope = host.Services.CreateScope())
             {
-                var services = scope.ServiceProvider;
+                IServiceProvider services = scope.ServiceProvider;
 
                 try
                 {
-                    var context = services.GetRequiredService<NewsierContext>();
+                    NewsierContext context = services.GetRequiredService<NewsierContext>();
 
                     if (context.Database.IsSqlServer())
                     {
                         context.Database.Migrate();
                     }
 
-                    await NewsierContextSeed.SeedAsync(context);
+                    await contextSeed.SeedAsync(context);
                 }
                 catch (Exception ex)
                 {
-                    var logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
+                    ILogger<Program> logger = scope.ServiceProvider.GetRequiredService<ILogger<Program>>();
 
                     logger.LogError(ex, "An error occurred while migrating or seeding the database.");
                 }

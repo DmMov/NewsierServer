@@ -8,28 +8,27 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Publisher> builder)
         {
-            builder.Property(p => p.Image)
+            builder.Property(x => x.Image)
                 .HasMaxLength(256)
-                .HasDefaultValue("user.png")
                 .IsRequired();
 
-            builder.Property(p => p.Name)
+            builder.Property(x => x.Name)
                 .HasMaxLength(32)
                 .IsRequired();
 
-            builder.Property(p => p.Surname)
+            builder.Property(x => x.Surname)
                 .HasMaxLength(64)
                 .IsRequired();
 
-            builder.Property(p => p.Email)
+            builder.Property(x => x.Email)
                 .HasMaxLength(128)
                 .IsRequired();
 
-            builder.Property(p => p.Password)
+            builder.Property(x => x.Password)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            builder.Property(p => p.Role)
+            builder.Property(x => x.Role)
                 .HasMaxLength(12)
                 .HasDefaultValue("publisher")
                 .IsRequired();

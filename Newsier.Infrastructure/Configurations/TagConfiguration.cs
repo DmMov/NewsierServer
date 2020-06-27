@@ -8,7 +8,7 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Tag> builder)
         {
-            builder.Property(t => t.Value)
+            builder.Property(x => x.Value)
                 .HasMaxLength(64)
                 .IsRequired();
         }

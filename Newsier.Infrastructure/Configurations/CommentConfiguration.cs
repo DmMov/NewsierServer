@@ -8,16 +8,16 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<Comment> builder)
         {
-            builder.Property(c => c.Value)
+            builder.Property(x => x.Value)
                 .HasMaxLength(256)
                 .IsRequired();
 
-            builder.HasOne(c => c.Publisher)
-                .WithMany(pub => pub.Comments)
+            builder.HasOne(x => x.Publisher)
+                .WithMany(x => x.Comments)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            builder.HasOne(c => c.Publication)
-                .WithMany(publ => publ.Comments)
+            builder.HasOne(x => x.Publication)
+                .WithMany(x => x.Comments)
                 .OnDelete(DeleteBehavior.SetNull);
         }
     }

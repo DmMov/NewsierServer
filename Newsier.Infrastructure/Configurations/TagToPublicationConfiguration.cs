@@ -8,12 +8,12 @@ namespace Newsier.Infrastructure.Configurations
     {
         public void Configure(EntityTypeBuilder<TagToPublication> builder)
         {
-            builder.HasOne(tp => tp.Publication)
-                .WithMany(p => p.TagsToPublications)
+            builder.HasOne(x => x.Publication)
+                .WithMany(x => x.TagsToPublications)
                 .OnDelete(DeleteBehavior.SetNull);
 
-            builder.HasOne(tp => tp.Tag)
-                .WithMany(t => t.TagsToPublications)
+            builder.HasOne(x => x.Tag)
+                .WithMany(x => x.TagsToPublications)
                 .OnDelete(DeleteBehavior.SetNull);
         }
     }

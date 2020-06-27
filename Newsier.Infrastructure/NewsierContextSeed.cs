@@ -7,10 +7,12 @@ using System.Threading.Tasks;
 
 namespace Newsier.Infrastructure
 {
-    public static class NewsierContextSeed
+    public sealed class NewsierContextSeed
     {
-        public static async Task SeedAsync(NewsierContext context)
+        public async Task SeedAsync(NewsierContext context)
         {
+            SeedHelper seedHelper = new SeedHelper();
+
             if (!context.Publishers.Any())
                 context.Publishers.Add(
                     new Publisher
@@ -27,16 +29,16 @@ namespace Newsier.Infrastructure
                 );
 
             if (!context.Categories.Any())
-                context.Categories.AddRange(await SeedHelper.SeedDataAsync<Category>("categories.json"));
+                context.Categories.AddRange(await seedHelper.SeedDataAsync<Category>("categories.json"));
 
             if (!context.Publications.Any())
-                context.Publications.AddRange(await SeedHelper.SeedDataAsync<Publication>("publications.json"));
+                context.Publications.AddRange(await seedHelper.SeedDataAsync<Publication>("publications.json"));
 
             if (!context.Tags.Any())
-                context.Tags.AddRange(await SeedHelper.SeedDataAsync<Tag>("tags.json"));
+                context.Tags.AddRange(await seedHelper.SeedDataAsync<Tag>("tags.json"));
 
             if (!context.TagsToPublications.Any())
-                context.TagsToPublications.AddRange(await SeedHelper.SeedDataAsync<TagToPublication>("tags-to-publications.json"));
+                context.TagsToPublications.AddRange(await seedHelper.SeedDataAsync<TagToPublication>("tags-to-publications.json"));
 
             await context.SaveChangesAsync();
         }
