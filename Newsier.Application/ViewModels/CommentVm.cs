@@ -21,7 +21,7 @@ namespace Newsier.Application.ViewModels
                 .ForMember(x => x.Publisher, opt => opt.MapFrom(x => $"{x.Publisher.Name} {x.Publisher.Surname}"))
                 .ForMember(x => x.PublisherImage, opt => opt.MapFrom(x => x.Publisher.Image))
                 .ForMember(x => x.CreatedAt, opt => opt.MapFrom(x =>
-                    $"{x.CreatedAt:MMMM dd} {(x.CreatedAt.Year == DateTime.UtcNow.Year ? "" : $"{x.CreatedAt:, yyyy}")}, at {x.CreatedAt:hh:mm}")
+                    $"{x.CreatedAt:MMMM dd}{(x.CreatedAt.Year == DateTime.UtcNow.Year ? "" : $"{x.CreatedAt:, yyyy}")}, at {x.CreatedAt:hh:mm}")
                 );
         }
     }
