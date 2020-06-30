@@ -19,7 +19,6 @@ namespace Newsier.Application.ViewModels
         public string CategoryId { get; set; }
         public string Category { get; set; }
         public string CreatedAt { get; set; }
-        public string LastModifiedAt { get; set; }
         public ICollection<TagVm> Tags { get; set; }
 
         public void Mapping(Profile profile)
