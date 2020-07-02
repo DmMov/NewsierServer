@@ -1,10 +1,10 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Base;
 using Newsier.Application.Interfaces;
 using Newsier.Application.ViewModels;
+using Newsier.Domain.Entities;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -20,11 +20,12 @@ namespace Newsier.Application.Queries.GetPublisherById
 
             public async Task<PublisherVm> Handle(GetPublisherByIdQuery request, CancellationToken cancellationToken)
             {
-                PublisherVm publisher = await _context.Publishers
-                    .ProjectTo<PublisherVm>(_mapper.ConfigurationProvider)
+                Publisher publisher = await _context.Publishers
                     .SingleOrDefaultAsync(publisher => publisher.Id == request.PublisherId);
 
-                return publisher;
+                PublisherVm response = _mapper.Map<PublisherVm>(publisher);
+
+                return response;
             }
         }
     }
