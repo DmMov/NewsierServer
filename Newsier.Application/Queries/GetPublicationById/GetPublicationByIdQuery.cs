@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using AutoMapper.QueryableExtensions;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Base;
@@ -21,11 +20,9 @@ namespace Newsier.Application.Queries.GetPublicationById
 
             public async Task<PublicationVm> Handle(GetPublicationByIdQuery request, CancellationToken cancellationToken)
             {
-                PublicationVm publicationVm = await _context.Publications
-                    .ProjectTo<PublicationVm>(_mapper.ConfigurationProvider)
-                    .SingleOrDefaultAsync(publication => publication.Id == request.PublicationId);
-
                 Publication publication = await _context.Publications
+                    .Include(x => x.Category)
+                    .Include(x => x.Publisher)
                     .SingleOrDefaultAsync(publication => publication.Id == request.PublicationId);
 
                 publication.Views++;
@@ -34,7 +31,9 @@ namespace Newsier.Application.Queries.GetPublicationById
 
                 await _context.SaveChangesAsync(cancellationToken);
 
-                return publicationVm;
+                PublicationVm response = _mapper.Map<PublicationVm>(publication);
+
+                return response;
             }
         }
     }
