@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using Newsier.Application.Base;
 using Newsier.Application.Interfaces;
 using Newsier.Application.ViewModels;
+using Newsier.Domain.Entities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
@@ -22,13 +23,21 @@ namespace Newsier.Application.Queries.GetPublicationsByPublisher
 
             public async Task<List<PublicationItemVm>> Handle(GetPublicationsByPublisherQuery request, CancellationToken cancellationToken)
             {
-                List<PublicationItemVm> publications = await _context.Publications
-                    .Where(x => x.PublisherId == request.PublisherId)
+                IQueryable<Publication> publications = _context.Publications
+                    .AsQueryable();
+                Publisher publisher = await _context.Publishers
+                    .FirstOrDefaultAsync(x => x.Id == request.PublisherId);
+
+                if (publisher.Role != "admin")
+                    publications = publications
+                        .Where(x => x.Id == publisher.Id);
+
+                List<PublicationItemVm> response = await publications
                     .OrderByDescending(x => x.CreatedAt)
                     .ProjectTo<PublicationItemVm>(_mapper.ConfigurationProvider)
                     .ToListAsync();
 
-                return publications;
+                return response;
             }
         }
     }
