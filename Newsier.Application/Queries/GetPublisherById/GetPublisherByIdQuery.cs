@@ -21,6 +21,8 @@ namespace Newsier.Application.Queries.GetPublisherById
             public async Task<PublisherVm> Handle(GetPublisherByIdQuery request, CancellationToken cancellationToken)
             {
                 Publisher publisher = await _context.Publishers
+                    .Include(x => x.Publications)
+                    .Include(x => x.Comments)
                     .SingleOrDefaultAsync(publisher => publisher.Id == request.PublisherId);
 
                 PublisherVm response = _mapper.Map<PublisherVm>(publisher);
